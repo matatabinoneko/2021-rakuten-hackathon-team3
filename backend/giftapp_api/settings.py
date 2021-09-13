@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # add apps
+    'corsheaders',
+    'rest_framework',
+    'api.apps.ApiConfig',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # add
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'giftapp_api.urls'
@@ -69,16 +76,39 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'giftapp_api.wsgi.application'
 
-
+CORS_ORIGIN_WHITELIST = [
+     "http://localhost:3000"
+]
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# if you use local server(sqlite3), please comment out
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# AWS RDS by Sun san
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'giftapp_db',
+        "USER": "admin",
+        "PASSWORD": "rpcstudio",
+        "HOST": "database-3.cocmmo76mlqr.ap-northeast-1.rds.amazonaws.com",
+        "PORT": "3306"
+     }
+ }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+         'rest_framework.permissions.IsAuthenticated',
+    ],
 }
+
+# using custum user model
+AUTH_USER_MODEL = "api.User"
 
 
 # Password validation
@@ -117,4 +147,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+import os
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
