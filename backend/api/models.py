@@ -4,10 +4,10 @@ import uuid
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, email, username, birthday, password, **extra_fields):
+    def create_user(self, username, birthday, password, **extra_fields):
 
         user = self.model(
-            email = self.normalize_email(email),
+            # email = self.normalize_email(email),
             username = username,
             birthday = birthday,
             **extra_fields
@@ -18,9 +18,9 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, username, birthday, password):
+    def create_superuser(self, username, birthday, password):
         user = self.create_user(
-            email,
+            # email,
             username = username,
             password=password,
             birthday=birthday,
