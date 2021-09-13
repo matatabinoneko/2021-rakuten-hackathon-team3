@@ -4,26 +4,20 @@ import uuid
 
 class UserManager(BaseUserManager):
 
-    def create_user(self, username, birthday, password, **extra_fields):
-
+    def create_user(self, loginid, password, **extra_fields):
         user = self.model(
-            # email = self.normalize_email(email),
-            username = username,
-            birthday = birthday,
+            loginid = loginid,
             **extra_fields
         )
-        #user = self.model(email=self.normalize_email(email), **extra_fields)
-
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, birthday, password):
+    def create_superuser(self, loginid, password, **extra_fields):
         user = self.create_user(
-            # email,
-            username = username,
+            loginid=loginid,
             password=password,
-            birthday=birthday,
+            **extra_fields
         )
         user.is_staff = True
         user.is_superuser = True
@@ -37,47 +31,53 @@ def load_path_icon(instance, filename):
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(default=uuid.uuid4,
                             primary_key=True, editable=False)
-    loginid = models.CharField(max_length=32, unique=True)
-    username = models.CharField(max_length=255,unique=True)
-    fistname = models.CharField(max_length=16, blank=False)
+    loginid = models.CharField(max_length=32, unique=True, blank=False)
+    username = models.CharField(max_length=255, blank=False)
+    firstname = models.CharField(max_length=16, blank=False)
     lastname = models.CharField(max_length=16, blank=False)
     iconimage = models.ImageField(blank=True, upload_to=load_path_icon)
-    birthday = models.DateField(blank=False)
-    address = models.OneToOneField("Address", blank=False, on_delete=models.CASCADE)
+    birthday = models.DateField(blank=False, default="1997-02-07")
+    zipcode = models.CharField(max_length=8,blank=False)
+    address = models.CharField(max_length=255, blank=False)
     friends = models.ManyToManyField("self", blank=True, symmetrical=False)
-    wishlists = models.ForeignKey("Wishlist", blank=True, null=True, on_delete=models.CASCADE)
     tags = models.ManyToManyField("PreferenceTag", blank=True)
-    is_selected = models.BooleanField(default=False)
     is_recommend = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
     objects = UserManager()
 
-    USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = ["birthday"]
+    USERNAME_FIELD = "loginid"
+    REQUIRED_FIELDS = []
+
     def __str__(self):
         return self.username
 
-class Address(models.Model):
-    zip_code = models.CharField(verbose_name='postal code',max_length=8,blank=True,)
-    address1 = models.CharField(verbose_name='prefecture',max_length=40,blank=True,)
-    address2 = models.CharField(verbose_name='city address',max_length=40,blank=True,)
-    address3 = models.CharField(verbose_name='buildings',max_length=40,blank=True,)
-    
+
+TAGS_ICHBA = ((1, 'レディースファッション',),(2, 'メンズファッション') , (3,'インナー・下着・ナイトウェア'), (4,'バッグ・小物・ブランド雑貨'), (5,'靴'),
+ (6, '腕時計'),(7,'ジュエリー・アクセサリー'), (8, 'キッズ・ベビー・マタニティ'), (9,'おもちゃ'), (10,'スポーツ・アウトドア'), (11,'家電'), (12,'TV・オーディオ・カメラ'),
+ (13, 'パソコン・周辺機器'), (14,'スマートフォン・タブレット') , (15, '光回線・モバイル通信'), (16,'食品'), (17, 'スイーツ・お菓子'), (18, '水・ソフトドリンク'),
+ (19, 'ビール・洋酒'), (20, '日本酒・焼酎') ,(21, 'インテリア・寝具・収納'), (22, '日用品雑貨・文房具・手芸'), (23, 'キッチン用品・食器・調理器具'), (24, '本・雑誌・コミック'),
+  (25, 'CD・DVD'), (26, 'テレビゲーム'), (27, 'ホビー'), (28, '楽器・音響機器'), (29, '車・バイク'), (30, '車用品・バイク用品'), (31, '美容・コスメ・香水'), (32, 'ダイエット・健康')
+  ,(33, '医薬品・コンタクト・介護'), (34, 'ペット・ペットグッズ'), (35, '花・ガーデン・DIY'), (36, 'サービス・リフォーム'), (37, '住宅・不動産'), (38, 'カタログギフト・チケット'), (39, '百貨店・総合通販・ギフト'))
 class PreferenceTag(models.Model):
-    name = models.CharField(max_length=255, blank=False)
-    # users = models.ManyToManyField("User")
+    name = models.IntegerField(choices=TAGS_ICHBA, default=1, unique=True)
+    def __str__(self):
+        return self.get_name_display()
+
 
 class Product(models.Model):
     name = models.CharField(max_length=255, blank=False)
-    wishlists = models.ManyToManyField("Wishlist")
     tags = models.ManyToManyField("PreferenceTag")
     url = models.CharField(max_length=255, blank=False)
+    def __str__(self):
+        return self.name
 
 class Wishlist(models.Model):
     name = models.CharField(max_length=255, blank=False)
     # ユーザーとウィッシュリストは1対多(ユーザーは複数のウィッシュリストを持つ)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     products = models.ManyToManyField("Product")
+    def __str__(self):
+        return self.name
 
