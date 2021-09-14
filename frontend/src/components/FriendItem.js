@@ -8,22 +8,21 @@ import styles from "css/Friends.css"
 function FriendItem(props) {
 
         const list = props.friends.map((friend,id) => (
-                <ListGroup.Item key={id}>
-                    <Card style={{ width: '15rem', height: "6rem" }}>
-                        {/* <Card.Img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg" placeholder="IMG" roundedCircle/> */}
-                    <Card.Header style={{textAlign: "right"}}>{friend.userName}</Card.Header>
-                        <Card.Body>
-                    <Card.Title style={{textAlign: "right"}}>{friend.birthDay}</Card.Title>
-                        </Card.Body>
-                    </Card>
-                </ListGroup.Item>
+                <li>
+                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg"/>
+                    <div class="friend-birthday">
+                        <h3 class="friend-birthday-year">2021</h3>
+                    <h2 class="friend-birthday-month-date"> {friend.birthDay}</h2>
+                    </div>
+                    <h4 class="friend-name">{friend.userName}</h4>
+                </li>
             ));
 
     return (
-        <div>
-            <ListGroup>
+        <div class="friends-list">
+            <ul class="scroll">
             {list}
-            </ListGroup>
+            </ul>
         </div>
     )
 }
