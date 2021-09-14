@@ -4,7 +4,14 @@ from api.models import User, Wishlist
 from api.models import PreferenceTag
 from django.contrib.auth import get_user_model
 
+class FriendSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("loginid", "username", "birthday")
+
 class UserSerializer(serializers.ModelSerializer):
+
+    friends = FriendSerializer(many=True)
     class Meta:
         model = get_user_model()
         fields = ("loginid","password", "username", "firstname", "lastname", "iconimage", "birthday",
