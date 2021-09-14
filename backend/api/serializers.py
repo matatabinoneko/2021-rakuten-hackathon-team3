@@ -1,5 +1,6 @@
+from django.db.models import fields
 from rest_framework import serializers 
-from api.models import User
+from api.models import User, Wishlist
 from api.models import PreferenceTag
 from django.contrib.auth import get_user_model
 
@@ -25,4 +26,13 @@ class PreferenceTagSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name'
+        )
+
+class WishlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Wishlist
+        fields = (
+            'id',
+            'name',
+            'user_id'
         )
