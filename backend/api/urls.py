@@ -11,7 +11,6 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
      path('', include(router.urls)),
-     path('create/', CreateUserView.as_view(), name='create'),
      path('users/create/', CreateUserView.as_view(), name='create'),
      path('users/<str:loginid>/', RetrieveUserView.as_view(), name='retrieve'),
      path('users/', ListUserView.as_view(), name="list"),
