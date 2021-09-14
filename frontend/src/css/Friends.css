@@ -1,0 +1,13 @@
+.scroll {
+    width: auto;
+    height: 570px;
+    overflow-x: scroll;
+}
+
+.scroll::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+    display:none;
+}
+
+.friend-item {
+    text-align: right;
+}
