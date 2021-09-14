@@ -8,7 +8,7 @@ function Item(props) {
 				<Card.Img
 					className="image"
 					variant="top"
-					src={props.item.imageurl}
+					src={props.item.urlimage}
 				/>
 				<Card.Body>
 					<Card.Text className="mb-1">
