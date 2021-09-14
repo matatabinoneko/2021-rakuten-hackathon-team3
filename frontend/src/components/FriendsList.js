@@ -1,25 +1,25 @@
 import React from "react"
 import FriendItem from "./FriendItem"
 import {ListGroup} from "react-bootstrap"
-import { ReactScrollableList } from "react-scrollable-list"
+import styles from "css/FriendsList.css"
 import { useState } from "react";
 
 function FriendsList() {
 
-	const friends = useState([])
-	
-	for (let i=1; i < 3; i++) {
-		// friends.push(`<FriendItem${}/>`)
-	}
+	const friends = [
+		{userName: "山田太郎", birthDay:"9/12", iconImage:"icon"}, 
+		{userName: "佐藤花子", birthDay:"9/8", iconImage:"icon"},
+		{userName: "田中一", birthDay:"4/5", iconImage:"icon"},
+		{userName: "田中一", birthDay:"4/5", iconImage:"icon"},
+	]
 
+	console.log({friends})
 
 	return(
 		<div>
 		<h3>FriendsList</h3>
-		<ul>
-			
-			<ListGroup.Item><FriendItem /></ListGroup.Item>
-			<ListGroup.Item><FriendItem /></ListGroup.Item>
+		<ul className="scroll">
+			<FriendItem friends={friends}/>
 		</ul>
 		</div>
 	)
