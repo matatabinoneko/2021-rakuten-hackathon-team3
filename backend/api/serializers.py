@@ -7,13 +7,17 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ("loginid","password", "username", "firstname", "lastname", "iconimage", "birthday",
-                "zipcode", "address", "is_recommend")
+                "zipcode", "address", "is_recommend", "friends", "tags")
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
+        friends = validated_data.pop("friends")
+        tags = validated_data.pop("tags")
         user = get_user_model().objects.create_user(**validated_data)
-
-        return user
+        for f in friends:
+            user.friends.add(f)
+        for t in tags:
+            user.tags.add(t)
 
 class PreferenceTagSerializer(serializers.ModelSerializer):
     class Meta:

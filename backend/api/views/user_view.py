@@ -8,3 +8,21 @@ from ..models import User
 class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = (AllowAny,)
+
+
+class ListUserView(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    # TODO: authentification
+    permission_classes = (AllowAny,)
+
+class RetrieveUserView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+    # TODO: authentification
+    permission_classes = (AllowAny,)
+    lookup_field = "loginid"
+
+
+
+
