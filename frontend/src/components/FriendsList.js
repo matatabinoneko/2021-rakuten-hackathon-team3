@@ -1,11 +1,28 @@
+import React from "react"
+import FriendItem from "./FriendItem"
+import {ListGroup} from "react-bootstrap"
+import { ReactScrollableList } from "react-scrollable-list"
+import { useState } from "react";
+
 function FriendsList() {
-	const frinendList = [];
-	for (let i = 0; i < 10; i++) {
-		frinendList.push(
-			<p className="text-white text-center">friends list</p>
-		);
+
+	const friends = useState([])
+	
+	for (let i=1; i < 3; i++) {
+		// friends.push(`<FriendItem${}/>`)
 	}
-	return <div className="bg-primary">{frinendList}</div>;
+
+
+	return(
+		<div>
+		<h3>FriendsList</h3>
+		<ul>
+			
+			<ListGroup.Item><FriendItem /></ListGroup.Item>
+			<ListGroup.Item><FriendItem /></ListGroup.Item>
+		</ul>
+		</div>
+	)
 }
 
 export default FriendsList;
