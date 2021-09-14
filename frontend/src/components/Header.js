@@ -1,52 +1,37 @@
+import React from 'react'
+import { Nav, Navbar, Form ,FormControl, Button } from 'react-bootstrap'
+
 function Header() {
-	return (
-		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			<div className="container-fluid">
-				<a className="navbar-brand" href="#">
-					Navbar
-				</a>
-				<button
-					className="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarNavAltMarkup"
-					aria-controls="navbarNavAltMarkup"
-					aria-expanded="false"
-					aria-label="Toggle navigation"
-				>
-					<span className="navbar-toggler-icon"></span>
-				</button>
-				<div
-					className="collapse navbar-collapse"
-					id="navbarNavAltMarkup"
-				>
-					<div className="navbar-nav">
-						<a
-							className="nav-link active"
-							aria-current="page"
-							href="#"
-						>
-							Home
-						</a>
-						<a className="nav-link" href="#">
-							Features
-						</a>
-						<a className="nav-link" href="#">
-							Pricing
-						</a>
-						<a
-							className="nav-link disabled"
-							href="#"
-							tabindex="-1"
-							aria-disabled="true"
-						>
-							Disabled
-						</a>
-					</div>
-				</div>
-			</div>
-		</nav>
-	);
+  return (
+    <div className="heaader">
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand className="navbar-brand mb-0 h1" href="/">RakutenGift</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+					<Nav
+            className="my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="/setting">
+              Setting
+            </Nav.Link>
+            {/* <Nav.Link href="/logout">Logout</Nav.Link> */}
+          </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="mr-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-secondary">Search</Button>
+          </Form>
+          
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
+  )
 }
 
-export default Header;
+export default Header
