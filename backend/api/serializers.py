@@ -1,5 +1,6 @@
 from rest_framework import serializers 
 from api.models import User
+from api.models import PreferenceTag
 from django.contrib.auth import get_user_model
 
 class UserSerializer(serializers.ModelSerializer):
@@ -13,3 +14,11 @@ class UserSerializer(serializers.ModelSerializer):
         user = get_user_model().objects.create_user(**validated_data)
 
         return user
+
+class PreferenceTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PreferenceTag
+        fields = (
+            'id',
+            'name'
+        )
