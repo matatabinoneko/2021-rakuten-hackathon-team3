@@ -53,5 +53,15 @@
             "zipcode": "158-0094",
             "address": "Futakotamagawa, Setagaya-ku, Tokyo"
         }
+    },
+
+    {
+        "model": "api.user",
+        "pk": "4",
+        "fields": {
+            "loginid": "yamamoto1",
+            "username": "yamamoto1",
+            "firstname": 
+        }
     }
 ]
