@@ -3,7 +3,7 @@ import { Nav, Navbar, Form ,FormControl, Button } from 'react-bootstrap'
 
 function Header() {
   return (
-    <div className="heaader">
+    <div className="header">
       <Navbar bg="light" expand="lg">
         <Navbar.Brand className="navbar-brand mb-0 h1" href="/">RakutenGift</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
