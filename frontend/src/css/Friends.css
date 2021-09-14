@@ -1,0 +1,52 @@
+.friends-container {
+    width: 100%;
+}
+.scroll {
+    height: 670px;
+    overflow-x: scroll;
+}
+.friends-list {
+    margin: 20px;
+}
+.friends-list ul {
+    list-style-type: none;
+  }
+.friends-list h3 {
+    float: right;
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+  }
+.friends-list li img {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    margin: 0 15px 0 0;
+  }  
+.friends-list li {
+    padding: 10px;
+    overflow: auto;
+  }
+   
+.friends-list li:hover {
+    background: #eee;
+    cursor: pointer;
+  }
+
+.friend-name {
+    padding-top: 5px;
+    padding-left: 13px;
+    font-size: 18px;
+}
+
+.friend-birthday {
+    margin-left: 20px;
+    margin-top: 30px;
+    float: right;
+}
+
+.scroll::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+    display:none;
+}
+
+.friend-item {
+    text-align: right;
+}

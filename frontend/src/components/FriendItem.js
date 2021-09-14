@@ -1,22 +1,29 @@
 import React, {useState} from "react"
 import {Card} from "react-bootstrap"
+import {ListGroup, Image} from "react-bootstrap"
+import styles from "css/Friends.css"
 
-function FriendItem() {
 
-    const userName = useState("")
-    const birthDay = useState("")
-    const iconImage = useState("")
+
+function FriendItem(props) {
+
+        const list = props.friends.map((friend,id) => (
+                <li>
+                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg"/>
+                    <div class="friend-birthday">
+                        <h3 class="friend-birthday-year">2021</h3>
+                    <h2 class="friend-birthday-month-date"> {friend.birthDay}</h2>
+                    </div>
+                    <h4 class="friend-name">{friend.userName}</h4>
+                </li>
+            ));
 
     return (
-        <Card style={{ width: '15rem' }}>
-        <Card.Header>山田太郎</Card.Header>
-            <Card.Body>
-                <Card.Title>9/13</Card.Title>
-                <Card.Text>
-                   send a birth day present!
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        <div class="friends-list">
+            <ul class="scroll">
+            {list}
+            </ul>
+        </div>
     )
 }
 
