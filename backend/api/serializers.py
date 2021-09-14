@@ -9,9 +9,18 @@ class FriendSerializer(serializers.ModelSerializer):
         model = User
         fields = ("loginid", "username", "birthday")
 
+class PreferenceTagSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source="get_name_display", read_only=True)
+    class Meta:
+        model = PreferenceTag
+        fields = (
+            'id',
+            'name'
+        )
 class UserSerializer(serializers.ModelSerializer):
 
     friends = FriendSerializer(many=True)
+    tags = PreferenceTagSerializer(many=True)
     class Meta:
         model = get_user_model()
         fields = ("loginid","password", "username", "firstname", "lastname", "iconimage", "birthday",
@@ -27,13 +36,7 @@ class UserSerializer(serializers.ModelSerializer):
         for t in tags:
             user.tags.add(t)
 
-class PreferenceTagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PreferenceTag
-        fields = (
-            'id',
-            'name'
-        )
+
 
 class WishlistSerializer(serializers.ModelSerializer):
     class Meta:
