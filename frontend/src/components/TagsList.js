@@ -1,7 +1,7 @@
 import Item from "components/Item";
 import "css/WishList.css";
 
-function WishList(props) {
+function Tagslist(props) {
 	const wishList = [];
 
 	for (let item of props.items) {
@@ -12,8 +12,8 @@ function WishList(props) {
 		);
 	}
 	return (
-		<div className="mb-3">
-			<h4>WishList</h4>
+		<div>
+			<h4>{props.tagName}</h4>
 			<div className="testimonial-group">
 				<div className="d-flex flex-row">{wishList}</div>
 			</div>
@@ -21,4 +21,4 @@ function WishList(props) {
 	);
 }
 
-export default WishList;
+export default Tagslist;

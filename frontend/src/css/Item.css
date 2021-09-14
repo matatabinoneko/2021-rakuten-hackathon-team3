@@ -1,0 +1,13 @@
+.noline {
+	text-decoration: none;
+	color: black;
+}
+
+.noline:hover {
+	color: red;
+	text-decoration: underline;
+}
+
+.image:hover {
+	opacity: 0.8;
+}
