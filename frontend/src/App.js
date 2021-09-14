@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./css/App.css";
 import TopPage from "pages/TopPage";
 
 function App() {
