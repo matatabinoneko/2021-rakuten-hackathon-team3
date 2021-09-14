@@ -1,19 +1,24 @@
+
+import { useState } from 'react'
 import Header from "components/Header";
 import FriendsList from "components/FriendsList";
 import WishList from "components/WishList";
 import AddMyWishItemList from "components/AddMyWishItemList";
 
 function TopPage() {
+	const [search,setSearch] = useState("mens")
+
+
 	return (
 		<div>
-			<Header />
-
+			<Header setSearch={setSearch}/>
+			<AddMyWishItemList search={search}/>
 			<div className="container">
-				<div className="row justify-content-center">
+				{/* <div className="row justify-content-center">
 					<div className="col">
 						<AddMyWishItemList />
 					</div>
-				</div>
+				</div> */}
 				<div className="row justify-content-center">
 					<div className="col-md-3">
 						<FriendsList />

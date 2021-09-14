@@ -1,7 +1,6 @@
 import React from "react"
 import FriendItem from "./FriendItem"
 import {ListGroup} from "react-bootstrap"
-import { ReactScrollableList } from "react-scrollable-list"
 import { useState } from "react";
 
 function FriendsList() {
