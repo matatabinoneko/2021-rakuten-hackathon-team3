@@ -5,9 +5,8 @@ from django.conf.urls import include
 from .views.user_view import CreateUserView, ListUserView, RetrieveUserView, FriendAPI, TagAPI, WishlistAPI
 from .views.preferencetag_view import PreferenceTagList
 from .views.product_view import CreateProductView, ProductDetails, ProductList
-
 from .views.wishlist_view import WishlistList, WishlistDetail, CreateWishlist, ProductAPI
-
+from .views.navi_view import NaviAPI
 router = routers.DefaultRouter()
 
 urlpatterns = [
@@ -26,4 +25,5 @@ urlpatterns = [
      path('products/', ProductList.as_view(),),
      path('products/<int:pk>/', ProductDetails.as_view(),),
      path('products/create/', CreateProductView.as_view(),),
+     path('navi/', NaviAPI.as_view(),)
 ]
