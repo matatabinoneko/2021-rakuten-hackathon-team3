@@ -29,7 +29,7 @@ class RetrieveUserView(generics.RetrieveAPIView):
 
 class FriendAPI(APIView):
     permission_classes = (AllowAny,)
-
+    # body-param example) {"friendid" : ["satou", "watanabe1"]}
     def post(self, request, loginid):
         user = get_object_or_404(User, loginid=loginid)
         friend = request.data["friendid"]
