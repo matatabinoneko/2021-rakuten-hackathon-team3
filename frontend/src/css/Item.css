@@ -11,3 +11,13 @@
 .image:hover {
 	opacity: 0.8;
 }
+
+.delete-button {
+	position: absolute;
+	right: 0;
+	z-index: 99;
+}
+
+.parent {
+	position: relative;
+}

@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import TopPage from "pages/TopPage";
 import MockPage from "pages/MockPage";
 import Login from "pages/Login";
+import UserPage from "pages/UserPage";
 import Registrationpage from "pages/Registrationpage";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 				<Route path="/signin">
 					<Login />
 				</Route>
+				<Route path="/user/:userId" component={UserPage} />
 				<Route path="/">
 					<RoutingPage />
 				</Route>
