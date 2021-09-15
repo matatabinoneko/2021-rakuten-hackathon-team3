@@ -1,9 +1,35 @@
 import Header from "components/Header";
 import FriendsList from "components/FriendsList";
 import WishList from "components/WishList";
+import TagsList from "components/TagsList";
 import AddMyWishItemList from "components/AddMyWishItemList";
+import { useEffect, useState } from "react";
+import { getWishList } from "data/api/mock";
 
 function TopPage() {
+	const [wishItems, setWishItems] = useState([]);
+	const [tagItems, setTagItems] = useState([]);
+
+	useEffect(() => {
+		getWishList("hoge")
+			.then((res) => {
+				setWishItems(res.data);
+			})
+			.catch((e) => {
+				console.error(e);
+			});
+	}, []);
+
+	useEffect(() => {
+		getWishList("hoge")
+			.then((res) => {
+				setTagItems(res.data);
+			})
+			.catch((e) => {
+				console.error(e);
+			});
+	}, []);
+
 	return (
 		<div>
 			<Header />
@@ -19,7 +45,8 @@ function TopPage() {
 						<FriendsList />
 					</div>
 					<div className="col-md-9">
-						<WishList />
+						<WishList items={wishItems} />
+						<TagsList items={tagItems} tagName="tagName" />
 					</div>
 				</div>
 			</div>
