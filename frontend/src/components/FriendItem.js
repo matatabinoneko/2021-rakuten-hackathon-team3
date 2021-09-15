@@ -19,10 +19,8 @@ function FriendItem(props) {
             ));
 
     return (
-        <div class="friends-list">
-            <ul class="scroll">
+        <div>
             {list}
-            </ul>
         </div>
     )
 }

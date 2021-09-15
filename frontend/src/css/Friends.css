@@ -9,20 +9,19 @@
     margin: 20px;
 }
 .friends-list ul {
-    list-style-type: none;
-  }
+  list-style-type: none;
+}
+
 .friends-list h3 {
     float: right;
     font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
   }
-.friends-list li img {
-    height: 80px;
-    width: 80px;
-    border-radius: 40px;
-    margin: 0 15px 0 0;
-  }  
 .friends-list li {
-    padding: 10px;
+    width: 234px;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    border: 1px solid;
+    border-radius: 15px;
     overflow: auto;
   }
    
@@ -30,6 +29,12 @@
     background: #eee;
     cursor: pointer;
   }
+.friends-list li img {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  margin: 0 15px 0 0;
+  }   
 
 .friend-name {
     padding-top: 5px;
