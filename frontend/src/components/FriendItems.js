@@ -12,9 +12,9 @@ function FriendItems(props) {
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg"/>
                     <div class="friend-birthday">
                         <h3 class="friend-birthday-year">2021</h3>
-                    <h2 class="friend-birthday-month-date"> {friend.birthDay}</h2>
+                    <h2 class="friend-birthday-month-date"> {friend.birtday}</h2>
                     </div>
-                    <h4 class="friend-name">{friend.userName}</h4>
+                    <h4 class="friend-name">{friend.username}</h4>
                 </li>
             ));
 
