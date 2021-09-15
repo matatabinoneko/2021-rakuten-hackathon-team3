@@ -1,14 +1,17 @@
 from django.db.models import fields
 from rest_framework import serializers 
+
 from api.models import User, Wishlist
 from api.models import PreferenceTag
 from api.models import Product
-from django.contrib.auth import get_user_model
+from api.models import User, Wishlist, PreferenceTag
 
+from django.contrib.auth import get_user_model
+from rest_framework.serializers import SerializerMethodField
 class FriendSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("loginid", "username", "birthday")
+        fields = ("id", "loginid", "username", "birthday", "friends")
 
 class PreferenceTagSerializer(serializers.ModelSerializer):
     name = serializers.CharField(source="get_name_display", read_only=True)
@@ -18,25 +21,6 @@ class PreferenceTagSerializer(serializers.ModelSerializer):
             'id',
             'name'
         )
-class UserSerializer(serializers.ModelSerializer):
-
-    friends = FriendSerializer(many=True)
-    tags = PreferenceTagSerializer(many=True)
-    class Meta:
-        model = get_user_model()
-        fields = ("loginid","password", "username", "firstname", "lastname", "iconimage", "birthday",
-                "zipcode", "address", "is_recommend", "friends", "tags")
-        extra_kwargs = {"password": {"write_only": True}}
-
-    def create(self, validated_data):
-        friends = validated_data.pop("friends")
-        tags = validated_data.pop("tags")
-        user = get_user_model().objects.create_user(**validated_data)
-        for f in friends:
-            user.friends.add(f)
-        for t in tags:
-            user.tags.add(t)
-
 
 
 class WishlistSerializer(serializers.ModelSerializer):
@@ -47,18 +31,40 @@ class WishlistSerializer(serializers.ModelSerializer):
             'name',
             'user_id'
         )
-    def create(self, request, *args, **kwargs):
-        data = request.data
-        user = self.request.user
-        wishlist = Wishlist.objects.create(
-            name=data['name'],
-            user=user
-        )
-        serializer = WishlistSerializer(wishlist)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=http_status.HTTP_201_CREATED,
-                        headers=headers)
+class UserSerializer(serializers.ModelSerializer):
 
+    friends = FriendSerializer(many=True)
+    tags = PreferenceTagSerializer(many=True)
+    wishlists = SerializerMethodField()
+
+    class Meta:
+        model = get_user_model()
+
+        fields = ("loginid","password", "username", "firstname", "lastname", "iconimage", "birthday",
+                "zipcode", "address", "is_recommend", "friends", "tags", "wishlists")
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def get_wishlists(self, obj):
+        wishlist_abstruct_contents = WishlistSerializer(Wishlist.objects.all().filter(user_id= obj.id), many=True).data
+        return wishlist_abstruct_contents
+
+    def create(self, validated_data):
+        friends = validated_data.pop("friends")
+        tags = validated_data.pop("tags")
+        user = get_user_model().objects.create_user(**validated_data)
+        for f in friends:
+            user.friends.add(f)
+        for t in tags:
+            user.tags.add(t)
+
+class WishlistSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Wishlist
+        fields = (
+            'id',
+            'name',
+            'user_id'
+        )
 
 class ProductSerializer(serializers.ModelSerializer):  
     class Meta:
