@@ -1,10 +1,7 @@
 from django.db.models import fields
 from rest_framework import serializers 
 
-from api.models import User, Wishlist
-from api.models import PreferenceTag
-from api.models import Product
-from api.models import User, Wishlist, PreferenceTag
+from api.models import User, Wishlist, PreferenceTag, Product
 
 from django.contrib.auth import get_user_model
 from rest_framework.serializers import SerializerMethodField
