@@ -54,19 +54,23 @@ class UserSerializer(serializers.ModelSerializer):
         for t in tags:
             user.tags.add(t)
 
+class ProductSerializer(serializers.ModelSerializer):  
+    class Meta:
+        model = Product
+        fields = (
+            "id",
+            'name',
+            'url'
+        )
+
 class WishlistSerializer(serializers.ModelSerializer):
+    products = ProductSerializer(many=True)
     class Meta:
         model = Wishlist
         fields = (
             'id',
             'name',
-            'user_id'
+            'user_id',
+            'products'
         )
 
-class ProductSerializer(serializers.ModelSerializer):  
-    class Meta:
-        model = Product
-        fields = (
-            'name',
-            'url'
-        )
