@@ -69,16 +69,17 @@ class FriendAPI(APIView):
 
 
 class TagAPI(APIView):
-    # TODO: authentification
     permission_classes = (AllowAny,)
-
+    # body-param example) {"tagid" : [1, 2]}
     def post(self, request, loginid):
         user = get_object_or_404(User, loginid=loginid)
-        friend = request.data["friendid"]
-        if len(friend) > 0:
-            friendinfo = get_object_or_404(User, loginid=friend)
-            friendid = friendinfo.id
-            user.friends.add(friendid)
+        tags = request.data["tagid"]
+        if len(tags) > 0:
+            for t in tags:
+                try:
+                    user.tags.add(t)
+                except:
+                    pass
             return Response(status=http_status.HTTP_201_CREATED)
         else:
             # I don't know appropriate http status code
@@ -87,15 +88,15 @@ class TagAPI(APIView):
 
     def delete(self, request, loginid, *args, **kwargs):
         user = get_object_or_404(User, loginid=loginid)
-        friend = request.data["friendid"]
-        if len(friend) > 0:
-            friendinfo = get_object_or_404(User, loginid=friend)
-            friendid = friendinfo.id
-            user.friends.remove(friendid)
+        tags = request.data["tagid"]
+        if len(tags) > 0:
+            for t in tags:
+                try:
+                    user.tags.remove(t)
+                except:
+                    pass
 
             return Response(status=http_status.HTTP_204_NO_CONTENT)
         else:
             # I don't know appropriate http status code
             return Response(status=http_status.HTTP_200_OK)
-
-
