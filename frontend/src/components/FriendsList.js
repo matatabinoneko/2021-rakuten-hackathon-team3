@@ -1,11 +1,14 @@
 import React from "react"
-import FriendItem from "./FriendItem"
-import {ListGroup} from "react-bootstrap"
+import FriendItems from "./FriendItems"
+import {ListGroup, PlaceholderButton} from "react-bootstrap"
 import styles from "css/Friends.css"
-import { useState } from "react";
+import AddFriendButton from "./AddFriendButton";
+import Placement from "./Placement"
+import VerticalModal from "./VerticalModal";
 
 
-
+// function ClickHandler() {
+// }
 function FriendsList() {
 
 	const friends = [
@@ -24,8 +27,12 @@ function FriendsList() {
 	return(
 		<div class="friends-container">
 			<h3>FriendsList</h3>
-			<FriendItem friends={friends}/>
-			
+			<div class="friends-list">
+            <ul class="friends-list-ul">
+			<FriendItems friends={friends}/>
+			</ul>
+			</div>
+			<VerticalModal />
 		</div>
 	)
 }

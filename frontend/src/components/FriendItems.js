@@ -5,7 +5,7 @@ import styles from "css/Friends.css"
 
 
 
-function FriendItem(props) {
+function FriendItems(props) {
 
         const list = props.friends.map((friend,id) => (
                 <li>
@@ -19,12 +19,10 @@ function FriendItem(props) {
             ));
 
     return (
-        <div class="friends-list">
-            <ul class="scroll">
+        <div>
             {list}
-            </ul>
         </div>
     )
 }
 
-export default FriendItem
+export default FriendItems
