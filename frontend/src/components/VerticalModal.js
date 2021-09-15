@@ -33,10 +33,12 @@ function ModalShow(props) {
 
               <Modal.Body>
                 <SearchFriend/>
+                <div className="friends-grid">
                 <div className="friends-list">
-                    <ul className="scroll">
+                    <ul className="friends-list-ul">
                 <TableShow />
                     </ul>
+                </div>
                 </div>
               </Modal.Body>
               <Modal.Footer>
