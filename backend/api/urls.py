@@ -6,7 +6,7 @@ from .views.user_view import CreateUserView, ListUserView, RetrieveUserView, Fri
 from .views.preferencetag_view import PreferenceTagList
 from .views.product_view import CreateProductView, ProductDetails, ProductList
 
-from .views.wishlist_view import WishlistList, WishlistDetail, CreateWishlist
+from .views.wishlist_view import WishlistList, WishlistDetail, CreateWishlist, ProductAPI
 
 router = routers.DefaultRouter()
 
@@ -21,6 +21,7 @@ urlpatterns = [
      path('preferencetags/', PreferenceTagList.as_view(),),
      path('wishlists/', WishlistList.as_view(),),
      path('wishlists/<int:pk>/', WishlistDetail.as_view(),),
+     path('wishlists/<int:pk>/product', ProductAPI.as_view(),),
      path('wishlists/create/', CreateWishlist.as_view(),),
      path('products/', ProductList.as_view(),),
      path('products/<int:pk>/', ProductDetails.as_view(),),
