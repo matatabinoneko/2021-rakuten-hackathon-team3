@@ -3,13 +3,19 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "css/AddMyWishItemList.css";
+import { IconButton } from "@material-ui/core";
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { useToasts } from 'react-toast-notifications';
+
 
 
 const AddMyWishItemList = (props) =>{
 	const [items, setItems] = useState([])
+	const { addToast } = useToasts()
+	
+	
 
 	useEffect(() => {
-		
 
 		fetch(`https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${props.search}&applicationId=1052009352887299977`)
 		.then(res => res.json()) 
@@ -31,7 +37,6 @@ const AddMyWishItemList = (props) =>{
 		slidesToShow: 5,
 	}
 
-
 	return (
 		<div className="banner">
       <Slider {...settings}>
@@ -40,6 +45,10 @@ const AddMyWishItemList = (props) =>{
 					<a href={item.Item.itemUrl}><img key={id} className="sliderImage" src={item.Item.mediumImageUrls[0].imageUrl} alt="sliderImages"/></a>
           {/* <img className="sliderImage" src={img} alt="sliderImages"/> */}
           <p key={id}>{item.Item.itemName}</p>
+					<IconButton type="button" variant="outlined" color="secondary" onClick={() => addToast("Added to your wish list!", 
+					{appearance: 'success',autoDismiss: true, autoDismissTimeout:3500})}>
+						<FavoriteBorderIcon />	
+					</IconButton>
         </div>
                 ))}
       </Slider>
