@@ -9,6 +9,7 @@ from rest_framework import status as http_status
 
 class CreateProductView(generics.CreateAPIView):
     serializer_class = ProductSerializer
+    permission_classes = (AllowAny,)
 
 class ProductList(generics.ListAPIView):
     serializer_class = ProductSerializer
