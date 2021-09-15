@@ -1,5 +1,3 @@
-
-import { useState } from 'react'
 import Header from "components/Header";
 import FriendsList from "components/FriendsList";
 import WishList from "components/WishList";
@@ -11,8 +9,8 @@ import { getWishList } from "data/api/mock";
 function TopPage() {
 	const [wishItems, setWishItems] = useState([]);
 	const [tagItems, setTagItems] = useState([]);
-	const [search,setSearch] = useState("mens")
-	
+	const [search, setSearch] = useState("mens");
+
 	useEffect(() => {
 		getWishList("hoge")
 			.then((res) => {
@@ -33,12 +31,10 @@ function TopPage() {
 			});
 	}, []);
 
-	
-
 	return (
 		<div>
-			<Header setSearch={setSearch}/>
-			<AddMyWishItemList search={search}/>
+			<Header setSearch={setSearch} />
+			<AddMyWishItemList search={search} />
 			<div className="container">
 				{/* <div className="row justify-content-center">
 					<div className="col">
