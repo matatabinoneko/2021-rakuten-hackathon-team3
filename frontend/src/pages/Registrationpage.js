@@ -126,7 +126,7 @@ class Registration extends Component {
                 <div  class="w-25 p-5">
                   <div className="row justify-content-center">
                     <Button variant="primary" type="submit">
-                      Sibmit
+                      Submit
                     </Button>
                   </div>
                 </div>
