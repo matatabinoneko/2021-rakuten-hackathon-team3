@@ -29,6 +29,48 @@ class RetrieveUserView(generics.RetrieveAPIView):
 
 class FriendAPI(APIView):
     permission_classes = (AllowAny,)
+    # body-param example) {"friendid" : ["satou", "watanabe1"]}
+    def post(self, request, loginid):
+        user = get_object_or_404(User, loginid=loginid)
+        friend = request.data["friendid"]
+        if len(friend) > 0:
+            for f in friend:
+                try:
+                    friendinfo = get_object_or_404(User, loginid=f)
+                    friendid = friendinfo.id
+                    user.friends.add(friendid)
+                except:
+                    pass
+            return Response(status=http_status.HTTP_201_CREATED)
+        else:
+            # I don't know appropriate http status code
+            return Response(status=http_status.HTTP_204_NO_CONTENT)
+
+
+    def delete(self, request, loginid, *args, **kwargs):
+        user = get_object_or_404(User, loginid=loginid)
+        friend = request.data["friendid"]
+        
+        if len(friend) > 0:
+            for f in friend:
+                try:
+                    friendinfo = get_object_or_404(User, loginid=f)
+                    friendid = friendinfo.id
+                    user.friends.remove(friendid)
+                except:
+                    pass
+
+            return Response(status=http_status.HTTP_204_NO_CONTENT)
+        else:
+            # I don't know appropriate http status code
+            return Response(status=http_status.HTTP_200_OK)
+
+
+
+
+class TagAPI(APIView):
+    # TODO: authentification
+    permission_classes = (AllowAny,)
 
     def post(self, request, loginid):
         user = get_object_or_404(User, loginid=loginid)
@@ -55,7 +97,5 @@ class FriendAPI(APIView):
         else:
             # I don't know appropriate http status code
             return Response(status=http_status.HTTP_200_OK)
-
-
 
 
