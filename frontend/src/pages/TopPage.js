@@ -5,6 +5,7 @@ import TagsList from "components/TagsList";
 import AddMyWishItemList from "components/AddMyWishItemList";
 import { useEffect, useState } from "react";
 import { getWishList } from "data/api/mock";
+import { ToastProvider } from "react-toast-notifications";
 
 function TopPage() {
 	const [wishItems, setWishItems] = useState([]);
@@ -34,7 +35,9 @@ function TopPage() {
 	return (
 		<div>
 			<Header setSearch={setSearch} />
-			<AddMyWishItemList search={search} />
+			<ToastProvider>
+				<AddMyWishItemList search={search} />
+			</ToastProvider>
 			<div className="container">
 				{/* <div className="row justify-content-center">
 					<div className="col">
