@@ -1,0 +1,64 @@
+.banner{
+  background-color: #ffffff;
+}
+
+.sliderContainer{
+  position: relative;
+
+
+}
+
+.sliderContainer > p {
+
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  width: 160px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+}
+
+
+
+.sliderImage{
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  filter: brightness(80%);
+}
+
+.sliderImage:hover{
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+
+
+.swiper-slide-next{
+  opacity: 0.5;
+}
+.swiper-slide-prev{
+  opacity: 0.5;
+}
