@@ -5,4 +5,4 @@
 Confirmed to work with python 3.8.10. ( > 3.7)
 3. if you use virtual environment, activate your virtual environment
 4. change the directory, then type`pip install -r requirements.txt`
-
+5 `python manage.py runserver`

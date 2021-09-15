@@ -1,0 +1,67 @@
+[
+    {
+        "model": "api.user",
+        "pk": 1,
+        "fields": {
+            "loginid": "tanaka1",
+            "username": "tanaka1",
+            "firstname": "ichiro",
+            "lastname": "tanaka",
+            "birthday": "1995-01-01",
+            "zipcode": "158-0094",
+            "address": "Futakotamagawa, Setagaya-ku, Tokyo"
+        }
+    },
+    
+    {
+        "model": "api.user",
+        "pk": 2,
+        "fields": {
+            "loginid": "tanaka2",
+            "username": "tanaka2",
+            "firstname": "jiro",
+            "lastname": "tanaka",
+            "birthday": "1995-01-01",
+            "zipcode": "158-0094",
+            "address": "Futakotamagawa, Setagaya-ku, Tokyo"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": 3,
+        "fields": {
+            "loginid": "watanabe1",
+            "username": "watanabe1",
+            "firstname": "jiro",
+            "lastname": "watanabe",
+            "birthday": "1996-01-01",
+            "zipcode": "158-0094",
+            "address": "Futakotamagawa, Setagaya-ku, Tokyo"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": 4,
+        "fields": {
+            "loginid": "watanabe2",
+            "username": "watanabe2",
+            "firstname": "jiro",
+            "lastname": "watanabe",
+            "birthday": "1997-01-01",
+            "zipcode": "158-0094",
+            "address": "Futakotamagawa, Setagaya-ku, Tokyo"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": "4",
+        "fields": {
+            "loginid": "yamamoto1",
+            "username": "yamamoto1",
+            "firstname": 
+        }
+    }
+]

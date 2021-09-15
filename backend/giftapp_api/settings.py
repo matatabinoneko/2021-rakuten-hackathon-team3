@@ -89,8 +89,6 @@ CORS_ORIGIN_WHITELIST = [
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-
-# AWS RDS by Sun san
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -105,6 +103,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
          'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+    ]
 }
 
 # using custum user model
