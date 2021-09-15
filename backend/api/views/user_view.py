@@ -24,7 +24,7 @@ class RetrieveUserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
     # TODO: authentification
-    permission_classes = (AllowAny,)
+    # permission_classes = (AllowAny,)
     lookup_field = "loginid"
 
 class FriendAPI(APIView):
@@ -93,6 +93,24 @@ class TagAPI(APIView):
             for t in tags:
                 try:
                     user.tags.remove(t)
+                except:
+                    pass
+
+            return Response(status=http_status.HTTP_204_NO_CONTENT)
+        else:
+            # I don't know appropriate http status code
+            return Response(status=http_status.HTTP_200_OK)
+
+class WishlistAPI(APIView):
+    # body-param example {"wishlistid" : [1, 2]}
+    def delete(self, request, loginid, *args, **kwargs):
+        user = get_object_or_404(User, loginid=loginid)
+        wishlistid = request.data["wishlistid"]
+        if len(wishlistid) > 0:
+            for w in wishlistid:
+                try:
+                    user.haswishlist.all().filter(id=w).delete()
+
                 except:
                     pass
 
