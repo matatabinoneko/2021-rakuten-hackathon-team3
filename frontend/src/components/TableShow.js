@@ -1,5 +1,5 @@
 import {Table, Grild, Row, Col} from "react-bootstrap"
-import FriendItem from "./FriendItem"
+import FriendItems from "./FriendItems"
 
 
 function TableShow() {
@@ -18,7 +18,7 @@ function TableShow() {
         <Row xs={1} md={2} className="g-4">
         {Array.from({ length: 4 }).map((_, idx) => (
           <Col>
-            <FriendItem friends={friends}/>
+            <FriendItems friends={friends}/>
           </Col>
         ))}
       </Row>

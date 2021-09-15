@@ -1,6 +1,6 @@
 import React from "react"
 import SearchFriend from "./SearchFriend"
-import FriendItem from "./FriendItem"
+import FriendItems from "./FriendItems"
 import Friends from "css/Friends.css"
 import TableShow from "./TableShow"
 import {Modal, Button, Table} from "react-bootstrap"

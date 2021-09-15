@@ -1,5 +1,5 @@
 import React from "react"
-import FriendItem from "./FriendItem"
+import FriendItems from "./FriendItems"
 import {ListGroup, PlaceholderButton} from "react-bootstrap"
 import styles from "css/Friends.css"
 import AddFriendButton from "./AddFriendButton";
@@ -29,7 +29,7 @@ function FriendsList() {
 			<h3>FriendsList</h3>
 			<div class="friends-list">
             <ul class="scroll friends-list-ul">
-			<FriendItem friends={friends}/>
+			<FriendItems friends={friends}/>
 			</ul>
 			</div>
 			<VerticalModal />
