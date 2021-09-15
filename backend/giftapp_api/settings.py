@@ -92,22 +92,13 @@ CORS_ORIGIN_WHITELIST = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "giftapp_db",
-        "USER": "root",
-        "PASSWORD": "Katsumi147"
-    }
-}
-# AWS RDS by Sun san
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'giftapp_db',
-#         "USER": "admin",
-#         "PASSWORD": "rpcstudio",
-#         "HOST": "database-3.cocmmo76mlqr.ap-northeast-1.rds.amazonaws.com",
-#         "PORT": "3306"
-#      }
-#  }
+        'NAME': 'giftapp_db',
+        "USER": "admin",
+        "PASSWORD": "rpcstudio",
+        "HOST": "database-3.cocmmo76mlqr.ap-northeast-1.rds.amazonaws.com",
+        "PORT": "3306"
+     }
+ }
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
          'rest_framework.permissions.IsAuthenticated',
