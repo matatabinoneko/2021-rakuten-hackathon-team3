@@ -2,6 +2,7 @@ from django.db.models import fields
 from rest_framework import serializers 
 from api.models import User, Wishlist
 from api.models import PreferenceTag
+from api.models import Product
 from django.contrib.auth import get_user_model
 
 class FriendSerializer(serializers.ModelSerializer):
@@ -45,4 +46,24 @@ class WishlistSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'user_id'
+        )
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        user = self.request.user
+        wishlist = Wishlist.objects.create(
+            name=data['name'],
+            user=user
+        )
+        serializer = WishlistSerializer(wishlist)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=http_status.HTTP_201_CREATED,
+                        headers=headers)
+
+
+class ProductSerializer(serializers.ModelSerializer):  
+    class Meta:
+        model = Product
+        fields = (
+            'name',
+            'url'
         )

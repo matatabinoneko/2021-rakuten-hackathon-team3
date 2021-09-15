@@ -6,7 +6,6 @@ from ..serializers import WishlistSerializer
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status as http_status
-from rest_framework.generics import get_object_or_404 # new
 
 class WishlistList(generics.ListAPIView):
     serializer_class = WishlistSerializer
