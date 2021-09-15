@@ -1,15 +1,14 @@
 .friends-container {
     width: 100%;
 }
-.scroll {
-    height: 670px;
-    overflow-x: scroll;
-}
+
 .friends-list {
-    margin: 20px;
 }
-.friends-list ul {
+.friends-list-ul {
   list-style-type: none;
+  padding-left: 0px;
+  height: 740px;
+  overflow-x: scroll;
 }
 
 .friends-list h3 {

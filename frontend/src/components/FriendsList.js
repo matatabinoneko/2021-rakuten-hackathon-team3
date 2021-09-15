@@ -28,7 +28,7 @@ function FriendsList() {
 		<div class="friends-container">
 			<h3>FriendsList</h3>
 			<div class="friends-list">
-            <ul class="scroll friends-list-ul">
+            <ul class="friends-list-ul">
 			<FriendItems friends={friends}/>
 			</ul>
 			</div>

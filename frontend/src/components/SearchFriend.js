@@ -1,5 +1,5 @@
-
 import {Form, Button} from "react-bootstrap"
+
 function SearchFriend() {
 
     return (
