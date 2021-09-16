@@ -27,6 +27,7 @@ class ListUserView(generics.ListAPIView):
             return queryset.filter(loginid__icontains=userid)
         return queryset
 
+
 class RetrieveUserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     queryset = User.objects.all()
@@ -35,7 +36,7 @@ class RetrieveUserView(generics.RetrieveAPIView):
     lookup_field = "loginid"
 
 class FriendAPI(APIView):
-    permission_classes = (AllowAny,)
+    # permission_classes = (AllowAny,)
     # body-param example) {"friendid" : ["satou", "watanabe1"]}
     def post(self, request, loginid):
         user = get_object_or_404(User, loginid=loginid)
@@ -75,7 +76,7 @@ class FriendAPI(APIView):
 
 
 class TagAPI(APIView):
-    permission_classes = (AllowAny,)
+    # permission_classes = (AllowAny,)
     # body-param example) {"tagid" : [1, 2]}
     def post(self, request, loginid):
         user = get_object_or_404(User, loginid=loginid)
@@ -124,3 +125,7 @@ class WishlistAPI(APIView):
         else:
             # I don't know appropriate http status code
             return Response(status=http_status.HTTP_200_OK)
+
+class LoginuserAPI(APIView):
+    def get(self, request):
+        return Response(self.request.user.loginid)
