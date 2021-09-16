@@ -1,0 +1,313 @@
+[
+    {
+        "model": "api.preferencetag",
+        "pk": 1,
+        "fields": {
+            "name": 1
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 2,
+        "fields": {
+            "name": 2
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 3,
+        "fields": {
+            "name": 3
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 4,
+        "fields": {
+            "name": 4
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 5,
+        "fields": {
+            "name": 5
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 6,
+        "fields": {
+            "name": 6
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 7,
+        "fields": {
+            "name": 7
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 8,
+        "fields": {
+            "name": 8
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 9,
+        "fields": {
+            "name": 9
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 10,
+        "fields": {
+            "name": 10
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 11,
+        "fields": {
+            "name": 11
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 12,
+        "fields": {
+            "name": 12
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 13,
+        "fields": {
+            "name": 13
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 14,
+        "fields": {
+            "name": 14
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 15,
+        "fields": {
+            "name": 15
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 16,
+        "fields": {
+            "name": 16
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 17,
+        "fields": {
+            "name": 17
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 18,
+        "fields": {
+            "name": 18
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 19,
+        "fields": {
+            "name": 19
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 20,
+        "fields": {
+            "name": 20
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 21,
+        "fields": {
+            "name": 21
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 22,
+        "fields": {
+            "name": 22
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 23,
+        "fields": {
+            "name": 23
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 24,
+        "fields": {
+            "name": 24
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 25,
+        "fields": {
+            "name": 25
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 26,
+        "fields": {
+            "name": 26
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 27,
+        "fields": {
+            "name": 27
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 28,
+        "fields": {
+            "name": 28
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 29,
+        "fields": {
+            "name": 29
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 30,
+        "fields": {
+            "name": 30
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 31,
+        "fields": {
+            "name": 31
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 32,
+        "fields": {
+            "name": 32
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 33,
+        "fields": {
+            "name": 33
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 34,
+        "fields": {
+            "name": 34
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 35,
+        "fields": {
+            "name":35
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 36,
+        "fields": {
+            "name": 36
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 37,
+        "fields": {
+            "name": 37
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 38,
+        "fields": {
+            "name": 38
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 39,
+        "fields": {
+            "name": 39
+        }
+    }
+]

@@ -1,0 +1,13 @@
+.icon-width {
+	width: 100%;
+}
+
+.name-width {
+	width: 80%;
+}
+
+.icon-round {
+	object-fit: contain;
+	border-radius: 50%;
+	width: 100%;
+}

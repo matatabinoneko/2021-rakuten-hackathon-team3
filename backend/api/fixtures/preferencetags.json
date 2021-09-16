@@ -1,0 +1,313 @@
+[
+    {
+        "model": "api.preferencetag",
+        "pk": 1,
+        "fields": {
+            "name": "レディースファッション"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 2,
+        "fields": {
+            "name": "メンズファッション"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 3,
+        "fields": {
+            "name": "インナー・下着・ナイトウェア"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 4,
+        "fields": {
+            "name": "バッグ・小物・ブランド雑貨"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 5,
+        "fields": {
+            "name": "靴"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 6,
+        "fields": {
+            "name": "腕時計"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 7,
+        "fields": {
+            "name": "ジュエリー・アクセサリー"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 8,
+        "fields": {
+            "name": "キッズ・ベビー・マタニティ"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 9,
+        "fields": {
+            "name": "おもちゃ"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 10,
+        "fields": {
+            "name": "スポーツ・アウトドア"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 11,
+        "fields": {
+            "name": "家電"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 12,
+        "fields": {
+            "name": "TV・オーディオ・カメラ"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 13,
+        "fields": {
+            "name": "パソコン・周辺機器"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 14,
+        "fields": {
+            "name": "スマートフォン・タブレット"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 15,
+        "fields": {
+            "name": "光回線・モバイル通信"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 16,
+        "fields": {
+            "name": "食品"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 17,
+        "fields": {
+            "name": "スイーツ・お菓子"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 18,
+        "fields": {
+            "name": "水・ソフトドリンク"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 19,
+        "fields": {
+            "name": "ビール・洋酒"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 20,
+        "fields": {
+            "name": "日本酒・焼酎"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 21,
+        "fields": {
+            "name": "インテリア・寝具・収納"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 22,
+        "fields": {
+            "name": "日用品雑貨・文房具・手芸"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 23,
+        "fields": {
+            "name": "キッチン用品・食器・調理器具"
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 24,
+        "fields": {
+            "name": "本・雑誌・コミック"
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 25,
+        "fields": {
+            "name": "CD・DVD"
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 26,
+        "fields": {
+            "name": "テレビゲーム"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 27,
+        "fields": {
+            "name": "ホビー"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 28,
+        "fields": {
+            "name": "楽器・音響機器"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 29,
+        "fields": {
+            "name": "車・バイク"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 30,
+        "fields": {
+            "name": "車用品・バイク用品"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 31,
+        "fields": {
+            "name": "美容・コスメ・香水"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 32,
+        "fields": {
+            "name": "ダイエット・健康"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 33,
+        "fields": {
+            "name": "医薬品・コンタクト・介護"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 34,
+        "fields": {
+            "name": "ペット・ペットグッズ"
+        }
+    },
+    
+    {
+        "model": "api.preferencetag",
+        "pk": 35,
+        "fields": {
+            "name": "花・ガーデン・DIY"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 36,
+        "fields": {
+            "name": "サービス・リフォーム"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 37,
+        "fields": {
+            "name": "住宅・不動産"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 38,
+        "fields": {
+            "name": "カタログギフト・チケット"
+        }
+    },
+
+    {
+        "model": "api.preferencetag",
+        "pk": 39,
+        "fields": {
+            "name": "百貨店・総合通販・ギフト"
+        }
+    }
+]

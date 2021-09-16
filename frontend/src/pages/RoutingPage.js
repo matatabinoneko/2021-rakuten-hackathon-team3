@@ -17,6 +17,9 @@ function RoutingPage() {
 				<Link to="/mock">mock page</Link>
 			</div>
 			<div>
+				<Link to="/user/hoge">user page</Link>
+			</div>
+			<div>
 				<Link to="/top">top page</Link>
 			</div>
 		</div>

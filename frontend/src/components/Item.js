@@ -1,10 +1,42 @@
 import { Card } from "react-bootstrap";
+import { IconContext } from "react-icons"; //IconContextをインポート
+import { BsXCircle, BsXCircleFill } from "react-icons/bs";
 import "css/Item.css";
 
+import useHover from "react-use-hover";
+
 function Item(props) {
+	const [isHover, hoverProps] = useHover();
+
+	const deleteIcon = isHover ? (
+		<BsXCircleFill />
+	) : (
+		<BsXCircle style={{ opacity: 0.5 }} />
+	);
+
 	return (
-		<a className="noline" href={props.item.url}>
-			<Card border="light" style={{ width: "10rem" }}>
+		<Card className="parent" border="light" style={{ width: "10rem" }}>
+			{props.showingDeleteButton && (
+				<div
+					className="delete-button"
+					{...hoverProps}
+					onClick={() => {
+						console.log("delete");
+					}}
+				>
+					<IconContext.Provider
+						value={{ color: "red", size: "25px" }}
+					>
+						{deleteIcon}
+					</IconContext.Provider>
+				</div>
+			)}
+			<a
+				className="noline"
+				href={props.item.url}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<Card.Img
 					className="image"
 					variant="top"
@@ -16,9 +48,13 @@ function Item(props) {
 					</Card.Text>
 					<Card.Text>¥{props.item.price}</Card.Text>
 				</Card.Body>
-			</Card>
-		</a>
+			</a>
+		</Card>
 	);
 }
+
+Item.defaultProps = {
+	showingDeleteButton: false,
+};
 
 export default Item;

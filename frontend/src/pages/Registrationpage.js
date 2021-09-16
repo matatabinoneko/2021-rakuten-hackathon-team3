@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+
+import React, {Component, useState} from "react"
 import {Navbar, Container, Row, Col, Form, Button, Spinner, Alert,} from "react-bootstrap";
 // import { newUserRegistration } from "./userRegAction";
 // import { useDispatch, useSelector } from "react-redux";
-import Registration_birthday from "pages/Registration_birthday";
-import Registration_tags from "pages/Registration_tags";
+import Registration_birthday from "pages/Registration_birthday"
+import Registration_tags from "pages/Registration_tags"
+import { Link,useHistory } from "react-router-dom";
+import "css/Login.css"
+
 
 const initialState = {
   username: "",
@@ -17,6 +21,7 @@ const initialState = {
   iconimage:null,
   is_recommend:false,
 };
+
 
 const usernameVerificationError = {
   isLength: false,
@@ -419,10 +424,13 @@ const Registration = () => {
       </Row>
     {/* </Container> */}
     </div>
+
         </div>
       </div>
     </div>
   );
-};
+
+}
+
 
 export default Registration;
