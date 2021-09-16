@@ -1,6 +1,6 @@
 from rest_framework import generics
 from rest_framework.serializers import Serializer
-from ..models import Wishlist, Product
+from ..models import Wishlist, Product, User
 from ..serializers import WishlistSerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
@@ -9,10 +9,19 @@ from rest_framework import status as http_status
 from rest_framework.generics import get_object_or_404
 class WishlistList(generics.ListAPIView):
     serializer_class = WishlistSerializer
-    
+
     def get_queryset(self):
-        user = self.request.user
-        return Wishlist.objects.filter(user=user)
+        queryset = Wishlist.objects.all()
+        userid =  self.request.query_params.get("userid", None)
+        alluser = User.objects.all()
+        if userid is not None:
+            try:
+                u = alluser.filter(loginid=userid)[0]
+                return queryset.filter(user=u)
+            except:
+                pass
+
+        return queryset
 
 class WishlistDetail(generics.RetrieveAPIView):
     serializer_class = WishlistSerializer
