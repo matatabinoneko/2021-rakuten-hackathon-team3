@@ -13,7 +13,7 @@ function Tagslist(props) {
 	}
 	return (
 		<div>
-			<h4>{props.tagName}</h4>
+			<h5>{props.tagName}</h5>
 			<div className="testimonial-group">
 				<div className="d-flex flex-row">{wishList}</div>
 			</div>
