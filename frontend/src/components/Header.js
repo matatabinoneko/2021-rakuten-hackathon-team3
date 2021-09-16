@@ -38,6 +38,7 @@ function Header(props) {
 			.get("/api/logout")
 			.then((res) => {})
 			.catch((e) => {
+				localStorage.clear();
 				window.location.reload();
 			});
 	};

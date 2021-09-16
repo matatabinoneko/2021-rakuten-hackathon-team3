@@ -11,7 +11,7 @@ import ApiPage from "pages/ApiPage";
 import { createGlobalState } from "react-hooks-global-state";
 
 const initialState = {
-	userId: "",
+	userId: localStorage.getItem("userId"),
 };
 const { useGlobalState } = createGlobalState(initialState);
 

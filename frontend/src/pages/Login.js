@@ -29,6 +29,7 @@ function Login() {
 			.get(`/api/users/${userId}`, { headers }, { data })
 			.then((res) => {
 				setGlobalUserId(userId);
+				localStorage.setItem("userId", userId);
 				history.replace("/top");
 			})
 			.catch(() => {
