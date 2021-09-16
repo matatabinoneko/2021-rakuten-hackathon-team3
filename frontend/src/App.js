@@ -8,8 +8,14 @@ import Login from "pages/Login";
 import UserPage from "pages/UserPage";
 import Registrationpage from "pages/Registrationpage";
 import ApiPage from "pages/ApiPage";
+import { createGlobalState } from "react-hooks-global-state";
 
-function App() {
+const initialState = {
+	userId: "",
+};
+const { useGlobalState } = createGlobalState(initialState);
+
+const App = () => {
 	return (
 		<BrowserRouter>
 			<Switch>
@@ -35,6 +41,6 @@ function App() {
 			</Switch>
 		</BrowserRouter>
 	);
-}
+};
 
-export default App;
+export { App, useGlobalState };
