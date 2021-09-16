@@ -1,0 +1,91 @@
+[
+    {
+        "model": "api.wishlist",
+        "pk": 1,
+        "fields": {
+            "user_id": 1,
+            "name": "Tanaka's fav things"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 2,
+        "fields": {
+            "user_id": 1,
+            "name": "買いたいけど買えないもの"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 2,
+        "fields": {
+            "user_id": 2,
+            "name": "Tanaka Jiro's wish list"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 4,
+        "fields": {
+            "user_id": 2,
+            "name": "Those things which cannot afford."
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 5,
+        "fields": {
+            "user_id": 3,
+            "name": "ichiban suki"
+        }
+    },
+    
+    {
+        "model": "api.wishlist",
+        "pk": 6,
+        "fields": {
+            "user_id": 3,
+            "name": "It's wishlist"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 7,
+        "fields": {
+            "user_id": 4,
+            "name": "Birthday"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 8,
+        "fields": {
+            "user_id": 5,
+            "name": "Yamanaka's fav"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 9,
+        "fields": {
+            "user_id": 5,
+            "name": "Target"
+        }
+    },
+
+    {
+        "model": "api.wishlist",
+        "pk": 10,
+        "fields": {
+            "user_id": "6",
+            "name": "美桜自分"
+        }
+    }
+]

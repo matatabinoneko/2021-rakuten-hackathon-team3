@@ -4,7 +4,8 @@ function RoutingPage() {
 	return (
 		<div>
 			<div>
-				<Link to="/">routing page</Link>
+				{/* <Link to="/">routing page</Link> */}
+				<p>routing page</p>
 			</div>
 			<div>
 				<Link to="/signin">signin page</Link>
@@ -14,6 +15,9 @@ function RoutingPage() {
 			</div>
 			<div>
 				<Link to="/mock">mock page</Link>
+			</div>
+			<div>
+				<Link to="/api-page">api page</Link>
 			</div>
 			<div>
 				<Link to="/user/hoge">user page</Link>

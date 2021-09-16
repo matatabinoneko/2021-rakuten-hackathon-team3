@@ -12,7 +12,7 @@ import { useToasts } from 'react-toast-notifications';
 const AddMyWishItemList = (props) =>{
 	const [items, setItems] = useState([])
 	const { addToast } = useToasts()
-	
+
 	
 
 	useEffect(() => {
@@ -26,6 +26,7 @@ const AddMyWishItemList = (props) =>{
 			// })
 		})
 	},[props.search])
+
 	
 	const settings = {
 		autoplay: true,
@@ -35,14 +36,45 @@ const AddMyWishItemList = (props) =>{
 		infinite: true,
 		speed: 1000,
 		slidesToShow: 5,
+		responsive: [
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 4,
+					slidesToScroll: 4,
+					infinite: true,
+					dots: true
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: true,
+					dots: true
+				}
+			},
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2
+				}
+			}
+		]
 	}
+
+
 
 	return (
 		<div className="banner">
+		
       <Slider {...settings}>
         {items.map((item,id) => (
         <div className="sliderContainer" key={id}>
-					<a href={item.Item.itemUrl}><img key={id} className="sliderImage" src={item.Item.mediumImageUrls[0].imageUrl} alt="sliderImages"/></a>
+					<a href={item.Item.itemUrl} target="_blank" rel="noopener noreferrer"><img key={id} className="sliderImage" src={item.Item.mediumImageUrls[0].imageUrl} alt="sliderImages"/></a>
           {/* <img className="sliderImage" src={img} alt="sliderImages"/> */}
           <p key={id}>{item.Item.itemName}</p>
 					<IconButton type="button" variant="outlined" color="secondary" onClick={() => addToast("Added to your wish list!", 
