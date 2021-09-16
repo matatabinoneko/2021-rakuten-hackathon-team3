@@ -57,11 +57,43 @@
 
     {
         "model": "api.user",
-        "pk": "4",
+        "pk": "5",
         "fields": {
             "loginid": "yamamoto1",
             "username": "yamamoto1",
-            "firstname": 
+            "firstname": "taro",
+            "lastname": "yamamoto",
+            "birthday": "1998-01-01",
+            "zipcode": "160-0004",
+            "address": "Yotsuya, Shinjuku-ku, Tokyo"
+        }
+    },
+    
+    {
+        "model": "api.user",
+        "pk": 6,
+        "fields": {
+            "loginid": "takashita",
+            "username": "takashita",
+            "firstname": "mio",
+            "lastname": "takashita",
+            "birthday": "1998-02-01",
+            "zipcode": "157-0065",
+            "address": "Kamisoshigaya, Setagaya-ku, Tokyo"
+        }
+    },
+
+    {
+        "model": "api.user",
+        "pk": 7,
+        "fields": {
+            "loginid": "morimoto",
+            "username": "morimoto",
+            "firstname": "yuko",
+            "lastname": "morimoto",
+            "birthday": "1998-02-01",
+            "zipcode": "102-8554",
+            "address": "Kioi-cho, Chiyoda-ku, Tokyo"
         }
     }
 ]
