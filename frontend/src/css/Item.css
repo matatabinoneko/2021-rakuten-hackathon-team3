@@ -21,3 +21,12 @@
 .parent {
 	position: relative;
 }
+
+.text-limit {
+	height: 3rem;
+	text-align: left;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
