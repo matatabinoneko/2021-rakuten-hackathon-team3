@@ -3,7 +3,6 @@ import "css/WishList.css";
 
 function Tagslist(props) {
 	const wishList = [];
-
 	for (let item of props.items) {
 		wishList.push(
 			<div className="item mx-1">
