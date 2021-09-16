@@ -12,6 +12,7 @@ import "css/Login.css";
 import { useGlobalState } from "App";
 import { useState } from "react";
 import axios from "axios";
+import logo from "../data/logo/RakutenBirthday.png";
 
 function Login() {
 	const [globalUserId, setGlobalUserId] = useGlobalState("userId");
@@ -42,9 +43,15 @@ function Login() {
 			<div class="pt-10 .pt-sm-0 .pt-md-0 .pt-lg-0 .pt-xl-0">
 				<div class="container">
 					<Navbar>
-						<Navbar.Brand className="navbar-brand mt-4 h1" href="/">
-							RakutenBirthday
-						</Navbar.Brand>
+						<Link to="/top">
+							<Navbar.Brand className="navbar-brand mb-0 h1">
+								<img
+									className="header__logo"
+									src={logo}
+									alt="logo"
+								/>
+							</Navbar.Brand>
+						</Link>
 					</Navbar>
 					<hr class="mt-0 mb-5"></hr>
 

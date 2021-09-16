@@ -3,7 +3,6 @@ import Tag from "components/Tag";
 
 function Profile(props) {
 	const empty_list = [];
-	console.log(props.data);
 	for (let tag of props.data.tags) {
 		empty_list.push(<Tag tagName={tag["name"]} />);
 	}
