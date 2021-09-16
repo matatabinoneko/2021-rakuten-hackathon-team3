@@ -6,6 +6,7 @@ import AddMyWishItemList from "components/AddMyWishItemList";
 import { useEffect, useState } from "react";
 import { getWishList } from "data/api/mock";
 import { ToastProvider } from "react-toast-notifications";
+import OkurimonoNavi from "components/OkurimonoNavi";
 // import Auth from "./Auth";
 
 function TopPage() {
@@ -49,6 +50,7 @@ function TopPage() {
 				<div className="row justify-content-center">
 					<div className="col-md-3">
 						<FriendsList />
+						<OkurimonoNavi />
 					</div>
 					<div className="col-md-9">
 						<WishList items={wishItems} />
