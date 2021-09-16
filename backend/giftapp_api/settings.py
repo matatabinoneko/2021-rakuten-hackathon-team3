@@ -25,7 +25,7 @@ SECRET_KEY = 'a*$uw(-^15!7$i_9$m-wr4fajxswqayyo1)!-x+&uyg^9*-rv&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,7 +136,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Japan'
 
 USE_I18N = True
 
