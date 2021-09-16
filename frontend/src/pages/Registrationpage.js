@@ -62,6 +62,7 @@ const Registration = () => {
 	const [input_birthday, setBirthday] = useState([]);
 	const [offergift, setOffergift] = useState("");
 	const [taglist, setTaglist] = useState([]);
+	const history = useHistory();
 
 	// const { isLoading, status, message } = useSelector(
 	//   (state) => state.registration
@@ -159,6 +160,7 @@ const Registration = () => {
 			};
 
 		axios.post("/api/users/create/", params).then((res) => {console.log(res);});
+		history.replace("/signin");
 		
 		
 	};
