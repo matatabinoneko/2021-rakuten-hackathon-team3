@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState,useEffect} from "react"
 import SearchFriend from "./SearchFriend"
 import FriendItems from "./FriendItems"
 import Friends from "css/Friends.css"
@@ -6,6 +6,8 @@ import TableShow from "./TableShow"
 import {Modal, Button, Table} from "react-bootstrap"
 
 function ModalShow(props) {
+
+    const [search, setSearch] = useState("");
 
     const friends = [
 		{id:1,userName: "Smith", birthDay:"9/15", iconImage:"icon"}, 
@@ -16,7 +18,7 @@ function ModalShow(props) {
 		{id:5,userName: "Tommy", birthDay:"11/5", iconImage:"icon"},
 		{id:5,userName: "Lee", birthDay:"1/20", iconImage:"icon"},
 		{id:5,userName: "Black", birthDay:"4/5", iconImage:"icon"},
-	]
+    ]
 
         return (
             <Modal
@@ -32,14 +34,7 @@ function ModalShow(props) {
               </Modal.Header>
 
               <Modal.Body>
-                <SearchFriend/>
-                <div className="friends-grid">
-                <div className="friends-list">
-                    <ul className="friends-list-ul">
-                <TableShow />
-                    </ul>
-                </div>
-                </div>
+                <SearchFriend search={search}/>
               </Modal.Body>
               <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>

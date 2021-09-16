@@ -15,7 +15,7 @@ function FriendsList() {
     const [friends, setFriends] = useState([])
 
     useEffect(() => { 
-			  fetch('http://localhost:8000/api/users/')
+			  fetch('http://18.176.60.7:8000/api/users/')
 			  .then(res=>res.json())
 			  .then(data=> setFriends(data))
         },[])
