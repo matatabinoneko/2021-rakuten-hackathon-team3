@@ -11,6 +11,13 @@
   overflow-x: scroll;
 }
 
+.friends-serach-ul {
+  list-style-type: none;
+  padding-left: 0px;
+  height: auto;
+  overflow-x: scroll;
+}
+
 .friends-list h3 {
     float: right;
     font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
@@ -55,8 +62,6 @@
     text-align: right;
 }
 
-.friends-grid {
-  margin-top: 30px;
-  padding-left: 75px;
-
+.friends-ser-bt {
+  margin-top: 10px;
 }
