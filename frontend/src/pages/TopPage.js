@@ -6,6 +6,8 @@ import AddMyWishItemList from "components/AddMyWishItemList";
 import { useEffect, useState } from "react";
 import { ToastProvider } from "react-toast-notifications";
 import OkurimonoNavi from "components/OkurimonoNavi";
+import { useGlobalState } from "App";
+
 import axios from "axios";
 import "css/TopPage.css";
 
@@ -17,6 +19,7 @@ function TopPage() {
 	const [search, setSearch] = useState("mens");
 	const [friends, setFriends] = useState([]);
 	const [myTags, setMyTags] = useState([]);
+	const [userId] = useGlobalState("userId");
 
 	const getItemsFromTag = async (tags) => {
 		const items = {};
@@ -33,7 +36,6 @@ function TopPage() {
 	};
 
 	useEffect(() => {
-		const userId = "tanaka1";
 		axios
 			.get(`/api/users/${userId}`)
 			.then((res) => {
@@ -78,7 +80,7 @@ function TopPage() {
 					<div className="row justify-content-center">
 						<div className="col-md-3">
 							<FriendsList friends={friends} />
-              <OkurimonoNavi />
+							<OkurimonoNavi />
 						</div>
 						<div className="col-md-9">
 							<div className="mt-5">
