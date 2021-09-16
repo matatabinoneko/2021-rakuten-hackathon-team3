@@ -1,12 +1,16 @@
 import React,{useState,useEffect} from "react"
 import {Form, Button} from "react-bootstrap"
 import  "css/Friends.css"
+import { useToasts } from 'react-toast-notifications'
+import axios from "axios"
 
-function SearchFriend()  {
+function SearchFriend(props)  {
 
     const [value, setValue] = useState("")
+    
     const [results, setResults] = useState([])
     const [list, setList] = useState([])
+    const { addToast } = useToasts()
 
     useEffect(()=> {
         const serchURL = `/api/users/?userid=${value}`
@@ -21,6 +25,21 @@ function SearchFriend()  {
         setValue(event.target.value);
       }
 
+    const hide = () => {
+        props.onHide()
+    }
+      const addFriend = (username) => {
+            const params =  { friendid: [username] };
+            axios.get("api/loginuser").then()
+            axios.post("/api/users/tanaka1/friend/", params).then((res) => {
+                console.log(res);
+            });
+            hide()
+            addToast(`Added ${username} to your friend!`, 
+                    {appearance: 'success',autoDismiss: true, autoDismissTimeout:3500}) 
+       
+      }
+
     const renderSearchResults = () => {
 
         const list =  results.map((result) => {
@@ -30,10 +49,9 @@ function SearchFriend()  {
             const day = birthday[2].replace(/^0+/,'')
             const username = result.username
 
-            console.log(birthday)
                 return(
                     <div>   
-                        <li>
+                        <li onClick={() => addFriend(username)}>
                             <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg"/>
                             <div class="friend-birthday">
                                 <h3 class="friend-birthday-year">{year}</h3>

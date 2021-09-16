@@ -2,6 +2,7 @@ import React,{useState} from "react"
 import SearchFriend from "./SearchFriend"
 import "css/Friends.css"
 import {Modal, Button} from "react-bootstrap"
+import { ToastProvider } from "react-toast-notifications";
 
 function ModalShow(props) {
 
@@ -13,13 +14,16 @@ function ModalShow(props) {
               centered
             >
               <Modal.Header closeButton>
+                  
                 <Modal.Title id="contained-modal-title-vcenter">
                   Let's Search your friend!
                 </Modal.Title>
               </Modal.Header>
               <div className="modal-backgound">
               <Modal.Body>
-                <SearchFriend />
+              <ToastProvider>
+                <SearchFriend onHide={props.onHide}/>
+              </ToastProvider>
               </Modal.Body>
               </div>
               <Modal.Footer>

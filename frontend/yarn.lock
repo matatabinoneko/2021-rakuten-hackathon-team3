@@ -9642,7 +9642,7 @@ react-slick@^0.28.1:
 
 react-toast-notifications@^2.5.1:
   version "2.5.1"
-  resolved "https://registry.npmjs.org/react-toast-notifications/-/react-toast-notifications-2.5.1.tgz"
+  resolved "https://registry.yarnpkg.com/react-toast-notifications/-/react-toast-notifications-2.5.1.tgz#30216eedb5608ec69719a818b9a2e09283e90074"
   integrity sha512-eYuuiSPGLyuMHojRH2U7CbENvFHsvNia39pLM/s10KipIoNs14T7RIJk4aU2N+l++OsSgtJqnFObx9bpwLMU5A==
   dependencies:
     "@emotion/core" "^10.0.14"
