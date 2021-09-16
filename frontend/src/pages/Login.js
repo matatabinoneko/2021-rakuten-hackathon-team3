@@ -17,7 +17,9 @@ function Login() {
 
 					<div className="row justify-content-center">
 						<div class="mb-5 title">
+
 							<h1 className="row justify-content-center">Please log in RakutenBirthday :)</h1>
+
 						</div>
 							<Form className="row justify-content-center">
 								  <Form.Group class="w-50 p-3" controlId="formBasicUserID">

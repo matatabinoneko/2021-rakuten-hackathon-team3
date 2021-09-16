@@ -1,143 +1,537 @@
-import React from "react"
-import { Button, Form, FormGroup, FormControl, ControlLabel ,Row, Col} from "react-bootstrap";
+import React, { useState } from "react";
 
+function Registration_birthday(props) {
+  const [val, setVal] = useState([]);
 
-function Registration_tags() {
-	return (
-    <div>
-			<div class="form-check form-check-inline">
-				<label for="sample_checkbox1">
-					<input type="checkbox" id="sample_checkbox1" />レディースファッション
-				</label><br/>
-				<label for="sample_checkbox2">
-					<input type="checkbox" id="sample_checkbox2" />メンズファッション
-				</label><br/>
-				<label for="sample_checkbox3">
-					<input type="checkbox" id="sample_checkbox3" />インナー・下着・ナイトウェア
-				</label><br/>
-				<label for="sample_checkbox4">
-					<input type="checkbox" id="sample_checkbox4" />バッグ・小物・ブランド雑貨
-				</label><br/>
-				<label for="sample_checkbox5">
-					<input type="checkbox" id="sample_checkbox5" />靴
-				</label><br/>
+  const handleChange = (e) => {
 
-				<label for="sample_checkbox6">
-					<input type="checkbox" id="sample_checkbox6" />腕時計
-				</label><br/>
-				<label for="sample_checkbox7">
-					<input type="checkbox" id="sample_checkbox7" />ジュエリー・アクセサリー
-				</label><br/>
-				<label for="sample_checkbox8">
-					<input type="checkbox" id="sample_checkbox8" />キッズ・ベビー・マタニティ
-				</label><br/>
-				<label for="sample_checkbox9">
-					<input type="checkbox" id="sample_checkbox9" />おもちゃ
-				</label><br/>
-				<label for="sample_checkbox10">
-					<input type="checkbox" id="sample_checkbox10" />スポーツ・アウトドア
-				</label><br/>
-		</div>
-		<div class="form-check form-check-inline">
-			<label for="sample_checkbox11">
-				<input type="checkbox" id="sample_checkbox11" />家電
-			</label><br/>
-			<label for="sample_checkbox12">
-				<input type="checkbox" id="sample_checkbox12" />TV・オーディオ・カメラ
-			</label><br/>
-			<label for="sample_checkbox13">
-				<input type="checkbox" id="sample_checkbox13" />パソコン・周辺機器
-			</label><br/>
-			<label for="sample_checkbox14">
-				<input type="checkbox" id="sample_checkbox14" />スマートフォン・タブレット
-			</label><br/>
-			<label for="sample_checkbox15">
-				<input type="checkbox" id="sample_checkbox15" />光回線・モバイル通信
-			</label><br/>
+    if (val.includes(e.target.value)) {
 
-			<label for="sample_checkbox16">
-				<input type="checkbox" id="sample_checkbox16" />食品
-			</label><br/>
-			<label for="sample_checkbox17">
-				<input type="checkbox" id="sample_checkbox17" />スイーツ・お菓子
-			</label><br/>
-			<label for="sample_checkbox18">
-				<input type="checkbox" id="sample_checkbox18" />水・ソフトドリンク
-			</label><br/>
-			<label for="sample_checkbox19">
-				<input type="checkbox" id="sample_checkbox19" />ビール・洋酒
-			</label><br/>
-			<label for="sample_checkbox20">
-				<input type="checkbox" id="sample_checkbox20" />日本酒・焼酎
-			</label><br/>
-		</div>
-		<div class="form-check form-check-inline">
-			<label for="sample_checkbox21">
-				<input type="checkbox" id="sample_checkbox21" />インテリア・寝具・収納
-			</label><br/>
-			<label for="sample_checkbox22">
-				<input type="checkbox" id="sample_checkbox22" />日用品雑貨・文房具・手芸
-			</label><br/>
-			<label for="sample_checkbox23">
-				<input type="checkbox" id="sample_checkbox23" />キッチン用品・食器・調理器具
-			</label><br/>
-			<label for="sample_checkbox24">
-				<input type="checkbox" id="sample_checkbox24" />本・雑誌・コミック
-			</label><br/>
-			<label for="sample_checkbox25">
-				<input type="checkbox" id="sample_checkbox25" />CD・DVD
-			</label><br/>
+      setVal(val.filter((item) => item !== e.target.value));
+    } else {
+      setVal([...val, e.target.value]);
+    }
 
-			<label for="sample_checkbox26">
-				<input type="checkbox" id="sample_checkbox26" />テレビゲーム
-			</label><br/>
-			<label for="sample_checkbox27">
-				<input type="checkbox" id="sample_checkbox27" />ホビー
-			</label><br/>
-			<label for="sample_checkbox28">
-				<input type="checkbox" id="sample_checkbox28" />楽器・音響機器
-			</label><br/>
-			<label for="sample_checkbox29">
-				<input type="checkbox" id="sample_checkbox29" />車・バイク
-			</label><br/>
-			<label for="sample_checkbox30">
-				<input type="checkbox" id="sample_checkbox30" />車用品・バイク用品
-			</label><br/>
-		</div>
-		<div class="form-check form-check-inline">
-			<label for="sample_checkbox31">
-				<input type="checkbox" id="sample_checkbox31" />美容・コスメ・香水
-			</label><br/>
-			<label for="sample_checkbox32">
-				<input type="checkbox" id="sample_checkbox32" />ダイエット・健康
-			</label><br/>
-			<label for="sample_checkbox33">
-				<input type="checkbox" id="sample_checkbox33" />医薬品・コンタクト・介護
-			</label><br/>
-			<label for="sample_checkbox34">
-				<input type="checkbox" id="sample_checkbox34" />ペット・ペットグッズ
-			</label><br/>
-			<label for="sample_checkbox35">
-				<input type="checkbox" id="sample_checkbox35" />花・ガーデン・DIY
-			</label><br/>
+    props.setTaglist(val)
+  };
 
-			<label for="sample_checkbox36">
-				<input type="checkbox" id="sample_checkbox36" />サービス・リフォーム
-			</label><br/>
-			<label for="sample_checkbox37">
-				<input type="checkbox" id="sample_checkbox37" />住宅・不動産
-			</label><br/>
-			<label for="sample_checkbox38">
-				<input type="checkbox" id="sample_checkbox38" />カタログギフト・チケット
-			</label><br/>
-			<label for="sample_checkbox39">
-				<input type="checkbox" id="sample_checkbox39" />百貨店・総合通販・ギフト
-			</label><br/>
-
-		</div>
-  </div>
+  return (
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 col-xs-6">
+          <>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value= "1"
+                  onChange={handleChange}
+                  checked={val.includes("1")}
+                />
+                レディースファッション
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="2"
+                  onChange={handleChange}
+                  checked={val.includes("2")}
+                />
+                メンズファッション
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="3"
+                  onChange={handleChange}
+                  checked={val.includes("3")}
+                />
+                インナー・下着・ナイトウェア
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="4"
+                  onChange={handleChange}
+                  checked={val.includes("4")}
+                />
+                バッグ・小物・ブランド雑貨
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="5"
+                  onChange={handleChange}
+                  checked={val.includes("5")}
+                />
+                靴
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="6"
+                  onChange={handleChange}
+                  checked={val.includes("6")}
+                />
+                腕時計
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="7"
+                  onChange={handleChange}
+                  checked={val.includes("7")}
+                />
+                ジュエリー・アクセサリー
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="8"
+                  onChange={handleChange}
+                  checked={val.includes("8")}
+                />
+                キッズ・ベビー・マタニティ
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="9"
+                  onChange={handleChange}
+                  checked={val.includes("9")}
+                />
+                おもちゃ
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="10"
+                  onChange={handleChange}
+                  checked={val.includes("10")}
+                />
+                スポーツ・アウトドア
+              </label>
+            </div>
+          </>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="11"
+                  onChange={handleChange}
+                  checked={val.includes("11")}
+                />
+                家電
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="12"
+                  onChange={handleChange}
+                  checked={val.includes("12")}
+                />
+                TV・オーディオ・カメラ
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="13"
+                  onChange={handleChange}
+                  checked={val.includes("13")}
+                />
+                パソコン・周辺機器
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="14"
+                  onChange={handleChange}
+                  checked={val.includes("14")}
+                />
+                スマートフォン・タブレット
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="15"
+                  onChange={handleChange}
+                  checked={val.includes("15")}
+                />
+                光回線・モバイル通信
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="16"
+                  onChange={handleChange}
+                  checked={val.includes("16")}
+                />
+                食品
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="17"
+                  onChange={handleChange}
+                  checked={val.includes("17")}
+                />
+                スイーツ・お菓子
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="18"
+                  onChange={handleChange}
+                  checked={val.includes("18")}
+                />
+                水・ソフトドリンク
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="19"
+                  onChange={handleChange}
+                  checked={val.includes("19")}
+                />
+                ビール・洋酒
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="20"
+                  onChange={handleChange}
+                  checked={val.includes("20")}
+                />
+                日本酒・焼酎
+              </label>
+            </div>
+          </>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="21"
+                  onChange={handleChange}
+                  checked={val.includes("21")}
+                />
+                インテリア・寝具・収納
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="22"
+                  onChange={handleChange}
+                  checked={val.includes("22")}
+                />
+                日用品雑貨・文房具・手芸
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="23"
+                  onChange={handleChange}
+                  checked={val.includes("23")}
+                />
+                キッチン用品・食器・調理器具
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="24"
+                  onChange={handleChange}
+                  checked={val.includes("24")}
+                />
+                本・雑誌・コミック
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="25"
+                  onChange={handleChange}
+                  checked={val.includes("25")}
+                />
+                CD・DVD
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="26"
+                  onChange={handleChange}
+                  checked={val.includes("26")}
+                />
+                テレビゲーム
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="27"
+                  onChange={handleChange}
+                  checked={val.includes("27")}
+                />
+                ホビー
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="28"
+                  onChange={handleChange}
+                  checked={val.includes("28")}
+                />
+                楽器・音響機器
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="29"
+                  onChange={handleChange}
+                  checked={val.includes("29")}
+                />
+                車・バイク
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="30"
+                  onChange={handleChange}
+                  checked={val.includes("30")}
+                />
+                車用品・バイク用品
+              </label>
+            </div>
+          </>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="31"
+                  onChange={handleChange}
+                  checked={val.includes("31")}
+                />
+                美容・コスメ・香水
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="32"
+                  onChange={handleChange}
+                  checked={val.includes("32")}
+                />
+                ダイエット・健康
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="33"
+                  onChange={handleChange}
+                  checked={val.includes("33")}
+                />
+                医薬品・コンタクト・介護
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="34"
+                  onChange={handleChange}
+                  checked={val.includes("34")}
+                />
+                ペット・ペットグッズ
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="35"
+                  onChange={handleChange}
+                  checked={val.includes("35")}
+                />
+                花・ガーデン・DIY
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="36"
+                  onChange={handleChange}
+                  checked={val.includes("36")}
+                />
+                サービス・リフォーム
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="37"
+                  onChange={handleChange}
+                  checked={val.includes("37")}
+                />
+                住宅・不動産
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="38"
+                  onChange={handleChange}
+                  checked={val.includes("38")}
+                />
+                カタログギフト・チケット
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  value="39"
+                  onChange={handleChange}
+                  checked={val.includes("39")}
+                />
+                百貨店・総合通販・ギフト
+              </label>
+            </div>
+          </>
+        </div>
+      </div>
+    </div>
   );
 }
 
+export default Registration_birthday;
 
-export default Registration_tags;
+// function Registration_birthday() {
+
+// 	return (
+//     <Form.Group as={Col} className="mb-3" controlId="Registration_tags">
+//     <Form.Label as="legend">
+//       What are you interested in ?
+//     </Form.Label >
+// 			<div class="form-check form-check-inline">
+//         <Form.Check label="レディースファッション" />
+//         <Form.Check label="メンズファッション"  />
+//         <Form.Check label="インナー・下着・ナイトウェア" />
+//         <Form.Check label="バッグ・小物・ブランド雑貨" />
+//         <Form.Check label="靴" />
+
+//         <Form.Check label="腕時計" />
+//         <Form.Check label="ジュエリー・アクセサリー" />
+//         <Form.Check label="キッズ・ベビー・マタニティ" />
+//         <Form.Check label="おもちゃ" />
+//         <Form.Check label="スポーツ・アウトドア" />
+// 			</div>
+// 			<div class="form-check form-check-inline">
+//         <Form.Check label="家電" />
+//         <Form.Check label="TV・オーディオ・カメラ" />
+//         <Form.Check label="パソコン・周辺機器" />
+//         <Form.Check label="スマートフォン・タブレット" />
+//         <Form.Check label="光回線・モバイル通信" />
+
+//         <Form.Check label="食品" />
+//         <Form.Check label="スイーツ・お菓子" />
+//         <Form.Check label="水・ソフトドリンク" />
+//         <Form.Check label="ビール・洋酒" />
+//         <Form.Check label="日本酒・焼酎" />
+// 			</div>
+// 			<div class="form-check form-check-inline">
+//         <Form.Check label="インテリア・寝具・収納" />
+//         <Form.Check label="日用品雑貨・文房具・手芸" />
+//         <Form.Check label="キッチン用品・食器・調理器具"/>
+//         <Form.Check label="本・雑誌・コミック" />
+//         <Form.Check label="CD・DVD" />
+
+//         <Form.Check label="テレビゲーム" />
+//         <Form.Check label="ホビー" />
+//         <Form.Check label="楽器・音響機器" />
+//         <Form.Check label="車・バイク" />
+//         <Form.Check label="車用品・バイク用品" />
+// 			</div>
+// 			<div class="form-check form-check-inline">
+//         <Form.Check label="美容・コスメ・香水" />
+//         <Form.Check label="ダイエット・健康" />
+//         <Form.Check label="医薬品・コンタクト・介護" />
+//         <Form.Check label="ペット・ペットグッズ" />
+//         <Form.Check label="花・ガーデン・DIY"/>
+//         <Form.Check label="サービス・リフォーム" />
+
+//         <Form.Check label="住宅・不動産" />
+//         <Form.Check label="カタログギフト・チケット" />
+//         <Form.Check label="百貨店・総合通販・ギフト"/>
+// 			</div>
+//     </Form.Group>
+
+//   );
+// }
+
+// export default Registration_birthday;
+
