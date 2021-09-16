@@ -25,6 +25,7 @@ class ListUserView(generics.ListAPIView):
         userid = self.request.query_params.get("userid", None)
         if userid is not None:
             return queryset.filter(loginid__icontains=userid)
+        return queryset
 
 class RetrieveUserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
