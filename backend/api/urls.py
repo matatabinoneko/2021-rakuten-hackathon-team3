@@ -15,7 +15,7 @@ urlpatterns = [
      path('users/<str:loginid>/', RetrieveUserView.as_view(), name='retrieve'),
      path('users/<str:loginid>/friend/', FriendAPI.as_view()),
      path('users/<str:loginid>/tag/', TagAPI.as_view()),
-     path('users/<str:loginid>/wishlist', WishlistAPI.as_view()),
+     path('users/<str:loginid>/wishlist/', WishlistAPI.as_view()),
      path('users/', ListUserView.as_view(), name="list"),
      path('preferencetags/', PreferenceTagList.as_view(),),
      path('wishlists/', WishlistList.as_view(),),
