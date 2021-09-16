@@ -63,7 +63,7 @@ function UserPage(props) {
 											</div>
 										</div>
 										<div className="style">
-											{props.match.params ===
+											{props.match.params.userId ===
 												globalUserId && (
 												<button
 													className="btn btn-outline-secondary float-end btn-sm"
