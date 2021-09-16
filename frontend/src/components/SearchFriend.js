@@ -54,7 +54,8 @@ function SearchFriend()  {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(value)
-            setList(renderSearchResults)
+        
+        setList(renderSearchResults)
         
     }
 
@@ -77,8 +78,6 @@ function SearchFriend()  {
             </div>
             </div>
         </Form.Group>
-        
-            
         </Form>
         )
 }
