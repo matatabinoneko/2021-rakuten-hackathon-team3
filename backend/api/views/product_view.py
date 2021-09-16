@@ -9,11 +9,20 @@ from rest_framework import status as http_status
 
 class CreateProductView(generics.CreateAPIView):
     serializer_class = ProductSerializer
+    permission_classes = (AllowAny,)
 
 class ProductList(generics.ListAPIView):
     serializer_class = ProductSerializer
-    queryset = Product.objects.all()
+    # queryset = Product.objects.all()
+    def get_queryset(self):
+        queryset = Product.objects.all()
+        tag =  self.request.query_params.get("tag", None)
+        if tag is not None:
+            return queryset.filter(tags=tag)
+        return queryset
+
 
 class ProductDetails(generics.RetrieveAPIView):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
+
