@@ -21,9 +21,12 @@ function Login() {
 
 	const signin = () => {
 		setGlobalUserId(userId);
+		const authorizationBasic = window.btoa(userId + ":" + password);
+		const headers = { Authorization: "Basic " + authorizationBasic };
+		const data = {};
 
 		axios
-			.get(`/api/users/${userId}`)
+			.get(`/api/users/${userId}`, { headers }, { data })
 			.then((res) => {
 				setGlobalUserId(userId);
 				history.replace("/top");

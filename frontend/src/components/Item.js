@@ -15,7 +15,11 @@ function Item(props) {
 	);
 
 	return (
-		<Card className="parent" border="light" style={{ width: "10rem" }}>
+		<Card
+			className="parent"
+			border="light"
+			style={{ width: "10rem", height: "20rem" }}
+		>
 			{props.showingDeleteButton && (
 				<div
 					className="delete-button"

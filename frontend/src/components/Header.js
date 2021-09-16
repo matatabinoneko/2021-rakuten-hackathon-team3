@@ -13,6 +13,7 @@ import logo from "../data/logo/RakutenBirthday.png";
 import { useHistory, Link } from "react-router-dom";
 import { useState } from "react";
 import { useGlobalState } from "App";
+import axios from "axios";
 
 function Header(props) {
 	const [value, setValue] = useState("");
@@ -33,7 +34,12 @@ function Header(props) {
 	};
 
 	const signout = () => {
-		window.location.reload();
+		axios
+			.get("/api/logout")
+			.then((res) => {})
+			.catch((e) => {
+				window.location.reload();
+			});
 	};
 
 	const status = userId ? (
