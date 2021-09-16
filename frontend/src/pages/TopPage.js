@@ -6,6 +6,7 @@ import AddMyWishItemList from "components/AddMyWishItemList";
 import { useEffect, useState } from "react";
 import { getWishList } from "data/api/mock";
 import { ToastProvider } from "react-toast-notifications";
+import axios from "axios";
 import "css/TopPage.css"
 // import Auth from "./Auth";
 
@@ -13,25 +14,17 @@ function TopPage() {
 	const [wishItems, setWishItems] = useState([]);
 	const [tagItems, setTagItems] = useState([]);
 	const [search, setSearch] = useState("mens");
+	const [friends, setFriends] = useState([]);
 
 	useEffect(() => {
-		getWishList("hoge")
-			.then((res) => {
-				setWishItems(res.data);
-			})
-			.catch((e) => {
-				console.error(e);
-			});
-	}, []);
-
-	useEffect(() => {
-		getWishList("hoge")
-			.then((res) => {
-				setTagItems(res.data);
-			})
-			.catch((e) => {
-				console.error(e);
-			});
+		const userId = "tanaka1";
+		axios.get(`/api/users/${userId}`).then((res) => {
+			const data = res.data;
+			setWishItems(data["wishlists"]);
+			setTagItems(data["tags"]);
+			setFriends(data["friends"]);
+			console.log(wishItems);
+		});
 	}, []);
 
 	return (
@@ -50,7 +43,7 @@ function TopPage() {
 					</div> */}
 					<div className="row justify-content-center">
 						<div className="col-md-3">
-							<FriendsList />
+  						<FriendsList friends={friends} />
 						</div>
 						<div className="col-md-9">
 							<WishList items={wishItems} />
