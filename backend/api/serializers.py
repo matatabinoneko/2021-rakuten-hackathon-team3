@@ -30,15 +30,16 @@ class WishlistSerializer(serializers.ModelSerializer):
         )
 class UserSerializer(serializers.ModelSerializer):
 
-    friends = FriendSerializer(many=True)
-    tags = PreferenceTagSerializer(many=True)
+    friends = FriendSerializer(many=True, read_only=True)
+    tags = PreferenceTagSerializer(many=True, read_only=True)
+    tag_id = serializers.PrimaryKeyRelatedField(queryset=PreferenceTag.objects.all(), write_only=True, many=True)
     wishlists = SerializerMethodField()
 
     class Meta:
         model = get_user_model()
 
         fields = ("loginid","password", "username", "firstname", "lastname", "iconimage", "birthday",
-                "zipcode", "address", "is_recommend", "friends", "tags", "wishlists")
+                "zipcode", "address", "is_recommend", "friends","tags","tag_id", "wishlists")
         extra_kwargs = {"password": {"write_only": True}}
 
     def get_wishlists(self, obj):
@@ -46,22 +47,36 @@ class UserSerializer(serializers.ModelSerializer):
         return wishlist_abstruct_contents
 
     def create(self, validated_data):
-        friends = validated_data.pop("friends")
+        validated_data["tags"] = validated_data.get("tag_id", None)
         tags = validated_data.pop("tags")
+        del validated_data["tag_id"]
+
         user = get_user_model().objects.create_user(**validated_data)
-        for f in friends:
-            user.friends.add(f)
         for t in tags:
             user.tags.add(t)
+        return user
 
-class ProductSerializer(serializers.ModelSerializer):  
+class ProductSerializer(serializers.ModelSerializer): 
+    tags = PreferenceTagSerializer(many=True, read_only=True)
+    tag_id = serializers.PrimaryKeyRelatedField(queryset=PreferenceTag.objects.all(), write_only=True, many=True)
     class Meta:
         model = Product
         fields = (
             "id",
             'name',
+            'tags',
+            'tag_id',
             'url'
         )
+    
+    def create(self, validated_data):
+        validated_data["tags"] = validated_data.get("tag_id", None)
+        tags = validated_data.pop("tags")
+        del validated_data["tag_id"]
+        product = Product.objects.create(**validated_data)
+        for t in tags:
+            product.tags.add(t)
+        return product
 
 class WishlistSerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True)
