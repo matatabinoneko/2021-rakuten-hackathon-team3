@@ -1,8 +1,6 @@
 import React,{useState,useEffect} from "react"
 import {Form, Button} from "react-bootstrap"
-import FriendItems from "./FriendItems";
 import  "css/Friends.css"
-
 
 function SearchFriend()  {
 
