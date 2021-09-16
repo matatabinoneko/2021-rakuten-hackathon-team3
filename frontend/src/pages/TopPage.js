@@ -5,8 +5,10 @@ import TagsList from "components/TagsList";
 import AddMyWishItemList from "components/AddMyWishItemList";
 import { useEffect, useState } from "react";
 import { ToastProvider } from "react-toast-notifications";
+import OkurimonoNavi from "components/OkurimonoNavi";
 import axios from "axios";
 import "css/TopPage.css";
+
 // import Auth from "./Auth";
 
 function TopPage() {
@@ -76,6 +78,7 @@ function TopPage() {
 					<div className="row justify-content-center">
 						<div className="col-md-3">
 							<FriendsList friends={friends} />
+              <OkurimonoNavi />
 						</div>
 						<div className="col-md-9">
 							<div className="mt-5">
