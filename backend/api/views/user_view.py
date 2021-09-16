@@ -129,3 +129,8 @@ class WishlistAPI(APIView):
 class LoginuserAPI(APIView):
     def get(self, request):
         return Response(self.request.user.loginid)
+
+
+class LogoutAPi(APIView):
+    def get(self, request):
+        return Response(status=401)
