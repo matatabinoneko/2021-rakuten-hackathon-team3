@@ -15,10 +15,16 @@ class CreateUserView(generics.CreateAPIView):
 
 
 class ListUserView(generics.ListAPIView):
-    queryset = User.objects.all()
+    
     serializer_class = UserSerializer
     # TODO: authentification
     permission_classes = (AllowAny,)
+    queryset = User.objects.all()
+    def get_queryset(self):
+        queryset = User.objects.all()
+        userid = self.request.query_params.get("userid", None)
+        if userid is not None:
+            return queryset.filter(loginid__icontains=userid)
 
 class RetrieveUserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
@@ -50,7 +56,6 @@ class FriendAPI(APIView):
     def delete(self, request, loginid, *args, **kwargs):
         user = get_object_or_404(User, loginid=loginid)
         friend = request.data["friendid"]
-        
         if len(friend) > 0:
             for f in friend:
                 try:
