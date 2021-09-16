@@ -153,5 +153,36 @@
             "url": "https://item.rakuten.co.jp/plumsyokuhin/dw/",
             "tags": [20]
         }
+    },
+
+    {
+        "model": "api.product",
+        "pk": "116",
+        "fields": {
+            "name": "敬老の日 送料無料 肉 牛肉 ギフト 冷凍 赤城和牛本格焼肉・BBQセット 600g(５種類) おためし赤城和牛専用旨味しょうゆだれ1本付(100ml) 希少部位 100g×4種(上カルビ、カイノミ ササミ ウチハラミ) 200g×1種(カルビ)",
+            "url": "https://item.rakuten.co.jp/akagi-beef/akagi-beef-wa-bbq600/",
+            "tags": [16]
+        }
+    },
+
+    {
+        "model": "api.product",
+        "pk": "118",
+        "fields": {
+            "name": "博多 ぐるぐる とりかわ 60本(20本入り×3箱)　送料無料 鳥皮 鶏皮 とり皮",
+            "url": "https://item.rakuten.co.jp/takeno/a000000004",
+            "tags": [16]
+        }
+    },
+
+    {
+        "model": "api.product",
+        "pk": "119",
+        "fields": {
+            "name": "生ラム肉 ジンギスカン 肩ロース 焼肉 500g 自家製タレ付属 バーベキュー BBQ 焼肉セット",
+            "url": "https://item.rakuten.co.jp/iwama/bbq-r-0130/",
+            "tags": [16]
+        }
     }
+    
 ]

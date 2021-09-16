@@ -34,7 +34,7 @@
         "pk": 4,
         "fields": {
             "user_id": 2,
-            "name": "Those things which cannot afford."
+            "name": "Those things which cannot afford.",
             "products": [114,115]
         }
     },
