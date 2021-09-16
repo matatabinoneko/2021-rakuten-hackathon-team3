@@ -67,6 +67,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'tags',
             'tag_id',
             'url',
+            'urlimage',
             'price'
         )
     
