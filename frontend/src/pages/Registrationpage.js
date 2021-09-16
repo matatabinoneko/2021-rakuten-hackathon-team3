@@ -15,6 +15,8 @@ import Registration_birthday from "pages/Registration_birthday";
 import Registration_tags from "pages/Registration_tags";
 import { Link, useHistory } from "react-router-dom";
 import "css/Login.css";
+import axios from "axios";
+
 
 const initialState = {
 	username: "",
@@ -42,6 +44,7 @@ const passVerificationError = {
 	confirmPass: false,
 };
 
+
 // const zipcodeVerificationError = {
 //   hashyphen: false,
 // };
@@ -53,6 +56,8 @@ const Registration = () => {
 	const [usernameError, setUsernameError] = useState(
 		usernameVerificationError
 	);
+
+	
 	// const [zipcodeError, setZipcodeError] = useState(zipcodeVerificationError);
 	const [input_birthday, setBirthday] = useState([]);
 	const [offergift, setOffergift] = useState("");
@@ -118,6 +123,8 @@ const Registration = () => {
 		setOffergift(e.target.value);
 	};
 
+
+
 	const handleOnSubmit = (e) => {
 		e.preventDefault();
 		let input_is_recommend = document.getElementById("is_recommend");
@@ -135,31 +142,25 @@ const Registration = () => {
 
 		let tagIds = taglist.map((str) => parseInt(str, 10));
 
-		const submitData = {
+
+		const params = {
 			loginid: loginid,
 			password: password,
 			username: username,
 			firstname: firstname,
 			lastname: lastname,
-			iconimage: iconimage,
+			iconimage: null,
 			birthday: input_birthday,
 			zipcode: zipcode,
 			address: address,
 			is_recommend: input_is_recommend.checked,
 			tag_id: tagIds,
-		};
 
-		console.log(submitData);
+			};
 
-		// const newRegistration = {
-		//   name,
-		//   phone,
-		//   email,
-		//   company,
-		//   address,
-		//   password,
-		// };
-		// dispatch(newUserRegistration(newRegistration));
+		axios.post("/api/users/create/", params).then((res) => {console.log(res);});
+		
+		
 	};
 
 	return (
@@ -440,9 +441,12 @@ const Registration = () => {
 										// <Check />
 									}
 
+
 									<Button
 										variant="primary"
 										type="submit"
+										className="mt-4"
+										// href="/top"
 										disabled={Object.values(
 											passwordError
 										).includes(false)}

@@ -66,7 +66,9 @@ class ProductSerializer(serializers.ModelSerializer):
             'name',
             'tags',
             'tag_id',
-            'url'
+            'url',
+            'urlimage',
+            'price'
         )
     
     def create(self, validated_data):

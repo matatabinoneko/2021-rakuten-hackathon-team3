@@ -70,6 +70,8 @@ class Product(models.Model):
     name = models.CharField(max_length=255, blank=False)
     tags = models.ManyToManyField("PreferenceTag")
     url = models.CharField(max_length=255, blank=False)
+    urlimage = models.CharField(max_length=255, blank=False, null=True)
+    price = models.IntegerField(null=True, blank=True)
     def __str__(self):
         return self.name
 
