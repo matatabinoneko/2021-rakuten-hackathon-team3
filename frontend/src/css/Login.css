@@ -1,5 +1,3 @@
-
-
 .full {
   position: relative;
   width: 100%;
@@ -10,13 +8,17 @@
 .title {
   position: relative;
   padding: 0.5em;
-  //background: #A9A9A9;
+
+  /* background: #A9A9A9; */
+
   color: #666666;
   content: '';
   top: 50%;
   left: 0;
   border: none;
   border-bottom: solid 15px transparent;
-  //border-right: solid 20px rgb(149, 158, 155);
+
+  /* border-right: solid 20px rgb(149, 158, 155); */
 
 }
+

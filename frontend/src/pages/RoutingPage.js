@@ -4,7 +4,8 @@ function RoutingPage() {
 	return (
 		<div>
 			<div>
-				<Link to="/">routing page</Link>
+				{/* <Link to="/">routing page</Link> */}
+				<p>routing page</p>
 			</div>
 			<div>
 				<Link to="/signin">signin page</Link>

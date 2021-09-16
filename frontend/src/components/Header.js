@@ -1,6 +1,7 @@
 import React from "react";
 import { Nav, Navbar, Form ,FormControl, Button } from 'react-bootstrap'
 import "css/Header.css"
+import logo from '../data/logo/RakutenBirthday.png';
 
 
 class Header extends React.Component{
@@ -33,7 +34,12 @@ class Header extends React.Component{
 		<div className="header">
       <Navbar>
 			{/* <Navbar bg="light" expand="lg"> */}
-        <Navbar.Brand className="navbar-brand mb-0 h1" href="/">RakutenBirthday</Navbar.Brand>
+
+        {/* <Navbar.Brand className="navbar-brand mb-0 h1" href="/">RakutenBirthday</Navbar.Brand> */}
+        <Navbar.Brand className="navbar-brand mb-0 h1" href="/top"> 
+        <img className="header__logo" src={logo} alt="logo"/>
+        </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
 					<Nav
