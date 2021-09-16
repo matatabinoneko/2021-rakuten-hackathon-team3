@@ -1,5 +1,8 @@
 .icon-width {
 	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 20px;
 }
 
 .name-width {
@@ -10,4 +13,28 @@
 	object-fit: contain;
 	border-radius: 50%;
 	width: 100%;
+}
+
+.table-background{
+	/* background-color: rgb(219, 219, 219); */
+	background: linear-gradient(to bottom, #b1b1b1 0%, #b1b1b1 50%, #ffffff 50%, #ffffff 100%);
+	border: solid 1px;
+	position: relative;
+
+}
+
+.whole-border{
+	border: solid 1px;
+}
+
+.name-place{
+	position: absolute;
+	margin-left: 50px;
+}
+
+.style{
+	display: flex;
+  justify-content: flex-end;
+	width: 640px;
+	margin-top: 40px;
 }

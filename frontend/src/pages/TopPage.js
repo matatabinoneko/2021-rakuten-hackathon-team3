@@ -14,6 +14,7 @@ import "css/TopPage.css";
 // import Auth from "./Auth";
 
 function TopPage() {
+
 	const [wishItems, setWishItems] = useState([]);
 	const [tagItems, setTagItems] = useState({});
 	const [search, setSearch] = useState("mens");
@@ -37,6 +38,7 @@ function TopPage() {
 		setTagItems(items);
 	};
 
+
 	// const getUser = async (uid) => {
 	// 	try {
 	// 		const res = await axios.get(`/api/users/${uid}`);
@@ -58,6 +60,7 @@ function TopPage() {
 	// };
 
 	const refreshFriendInfo = () => {
+
 		axios
 			.get(`/api/users/${friendUserId}`)
 			.then((res) => {
@@ -79,9 +82,11 @@ function TopPage() {
 			.then((res) => {
 				const data = res.data;
 				setFriends(data["friends"]);
+
 				if (0 < data["friends"].length) {
 					setFriendUserId(data["friends"][0]["loginid"]);
 				}
+
 			})
 			.catch((e) => {
 				console.error(e);
