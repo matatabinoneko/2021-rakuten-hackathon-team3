@@ -43,9 +43,9 @@ function Item(props) {
 					src={props.item.urlimage}
 				/>
 				<Card.Body>
-					<Card.Text className="mb-1">
-						{props.item.itemname}
-					</Card.Text>
+					{/* <Card.Text className="mb-1　text-limit"> */}
+					<p className="text-limit">{props.item.name}</p>
+					{/* </Card.Text> */}
 					<Card.Text>¥{props.item.price}</Card.Text>
 				</Card.Body>
 			</a>

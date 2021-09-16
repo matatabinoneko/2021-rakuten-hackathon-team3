@@ -7,6 +7,7 @@ import MockPage from "pages/MockPage";
 import Login from "pages/Login";
 import UserPage from "pages/UserPage";
 import Registrationpage from "pages/Registrationpage";
+import ApiPage from "pages/ApiPage";
 
 function App() {
 	return (
@@ -23,6 +24,9 @@ function App() {
 				</Route>
 				<Route path="/signin">
 					<Login />
+				</Route>
+				<Route path="/api-page">
+					<ApiPage />
 				</Route>
 				<Route path="/user/:userId" component={UserPage} />
 				<Route path="/">

@@ -11,6 +11,7 @@ function Registration_birthday(props) {
 
     const form_output = select_year+"-"+select_month+"-"+select_day
     props.setBirthday(form_output)
+
   }
 
 	return (

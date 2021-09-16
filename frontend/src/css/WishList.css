@@ -1,7 +1,6 @@
 /* The heart of the matter */
 .testimonial-group > .d-flex {
 	overflow-x: auto;
-	white-space: nowrap;
 }
 .testimonial-group > .d-flex > .item {
 	display: inline-block;
