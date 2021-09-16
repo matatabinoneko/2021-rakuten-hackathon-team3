@@ -20,7 +20,7 @@ urlpatterns = [
      path('preferencetags/', PreferenceTagList.as_view(),),
      path('wishlists/', WishlistList.as_view(),),
      path('wishlists/<int:pk>/', WishlistDetail.as_view(),),
-     path('wishlists/<int:pk>/product', ProductAPI.as_view(),),
+     path('wishlists/<int:pk>/product/', ProductAPI.as_view(),),
      path('wishlists/create/', CreateWishlist.as_view(),),
      path('products/', ProductList.as_view(),),
      path('products/<int:pk>/', ProductDetails.as_view(),),
