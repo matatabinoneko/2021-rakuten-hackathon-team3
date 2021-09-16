@@ -16,7 +16,7 @@ function ApiPage() {
 
 	const createUser = () => {
 		const params = {
-			loginid: "rakuten",
+			loginid: "rakuten1",
 			password: "rakutenrakuten",
 			username: "t-naka",
 			firstname: "rakuten",
@@ -26,8 +26,7 @@ function ApiPage() {
 			zipcode: "111-2345",
 			address: "東京都xx区〇〇",
 			is_recommend: false,
-			friends: [],
-			tags: [],
+			tag_id: [],
 		};
 		axios.post("/api/users/create/", params).then((res) => {
 			console.log(res);
@@ -42,14 +41,14 @@ function ApiPage() {
 	};
 
 	const deleteUserFriend = () => {
-		const params = { friendid: ["tanaka1", "watanabe1"] };
-		axios.delete("/api/users/tanaka1/friend/", params).then((res) => {
+		const data = { friendid: ["tanaka1", "watanabe1"] };
+		axios.delete("/api/users/tanaka1/friend/", { data }).then((res) => {
 			console.log(res);
 		});
 	};
 
 	const getTag = () => {
-		axios.get("/api/users/tanaka1/tag/").then((res) => {
+		axios.get("/api/preferencetags/").then((res) => {
 			console.log(res);
 		});
 	};
@@ -62,15 +61,41 @@ function ApiPage() {
 	};
 
 	const deleteTag = () => {
-		const params = { tagid: [1, 2] };
-		axios.delete("/api/users/tanaka1/tag/", params).then((res) => {
+		const data = { tagid: [1, 2] };
+		axios.delete("/api/users/tanaka1/tag/", { data }).then((res) => {
+			console.log(res);
+		});
+	};
+
+	const getWishList = () => {
+		axios.get("/api/wishlists/").then((res) => {
+			console.log(res);
+		});
+	};
+
+	const getSelectedWishList = () => {
+		axios.delete("/api/wishlists/1").then((res) => {
+			console.log(res);
+		});
+	};
+
+	const createNewWishList = () => {
+		const params = { name: "コーヒーの日に", products: [] };
+		axios.post("/api/wishlists/create/", params).then((res) => {
+			console.log(res);
+		});
+	};
+
+	const addWishList = () => {
+		const params = { productid: [1, 2] };
+		axios.post("/api/wishlists/2/product/", params).then((res) => {
 			console.log(res);
 		});
 	};
 
 	const deleteWishList = () => {
-		const params = { wishlistid: [1] };
-		axios.delete("/api/users/tanaka1/wishlist/", params).then((res) => {
+		const data = { wishlistid: [1] };
+		axios.delete("/api/users/tanaka1/wishlist/", { data }).then((res) => {
 			console.log(res);
 		});
 	};
@@ -83,14 +108,24 @@ function ApiPage() {
 
 	const getSelectedProduct = () => {
 		const params = { tag: 1 };
-		axios.get("/api/products/", params).then((res) => {
+		axios.get("/api/products/", { params }).then((res) => {
 			console.log(res.data);
 		});
 	};
 
 	const createProduct = () => {
-		const params = { name: "hoge", tags: [{ id: "2" }] };
-		axios.post("/api/users/tanaka1/tag/", params).then((res) => {
+		const params = {
+			name: "コーヒー",
+			tag_id: [1, 3, 5],
+			url: "coffee.com",
+		};
+		axios.post("/api/products/create/", params).then((res) => {
+			console.log(res);
+		});
+	};
+
+	const getOkurimonoNavi = () => {
+		axios.get("api/navi").then((res) => {
 			console.log(res);
 		});
 	};
@@ -101,6 +136,7 @@ function ApiPage() {
 				<div class="col col-md-10">
 					<table class="table">
 						<tbody>
+							<h4>ユーザーAPI</h4>
 							<tr>
 								<td>
 									<h5>get users list</h5>
@@ -184,11 +220,14 @@ function ApiPage() {
 									</button>
 								</td>
 							</tr>
+						</tbody>
+						<tbody>
+							<h4>tag API</h4>
 							<tr>
 								<td>
 									<h5>get tag relation </h5>
 									<p className="text-mute">
-										/api/users/(loginid)/tag/
+										/api/preferencetags/
 									</p>
 									<p className="text-mute m-0">GET</p>
 								</td>
@@ -235,6 +274,75 @@ function ApiPage() {
 									</button>
 								</td>
 							</tr>
+						</tbody>
+						<tbody>
+							<h4>wishList API</h4>
+							<tr>
+								<td>
+									<h5>get wish list </h5>
+									<p className="text-mute">/api/wishlists/</p>
+									<p className="text-mute m-0">GET</p>
+								</td>
+								<td>
+									<button
+										className="btn btn-primary btn-sm"
+										onClick={getWishList}
+									>
+										button
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>get selected wish list </h5>
+									<p className="text-mute">
+										/api/wishlists/(wishlists id)/
+									</p>
+									<p className="text-mute m-0">GET</p>
+								</td>
+								<td>
+									<button
+										className="btn btn-primary btn-sm"
+										onClick={getSelectedWishList}
+									>
+										button
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>create new wish list </h5>
+									<p className="text-mute">
+										/api/wishlists/create/
+									</p>
+									<p className="text-mute m-0">POST</p>
+								</td>
+								<td>
+									<button
+										className="btn btn-primary btn-sm"
+										onClick={createNewWishList}
+									>
+										button
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h5>add product to wish list </h5>
+									<p className="text-mute">
+										/api/wishlists/(wishlists id)/product/
+									</p>
+									<p className="text-mute m-0">POST</p>
+								</td>
+								<td>
+									<button
+										className="btn btn-primary btn-sm"
+										onClick={addWishList}
+									>
+										button
+									</button>
+								</td>
+							</tr>
 							<tr>
 								<td>
 									<h5>delete wish list </h5>
@@ -252,6 +360,9 @@ function ApiPage() {
 									</button>
 								</td>
 							</tr>
+						</tbody>
+						<tbody>
+							<h4>product API</h4>
 							<tr>
 								<td>
 									<h5>get product</h5>
@@ -296,6 +407,24 @@ function ApiPage() {
 									<button
 										className="btn btn-primary btn-sm"
 										onClick={createProduct}
+									>
+										button
+									</button>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<h4>okurimono API</h4>
+							<tr>
+								<td>
+									<h5>get okurimono navi</h5>
+									<p className="text-mute">/api/navi</p>
+									<p className="text-mute m-0">GET</p>
+								</td>
+								<td>
+									<button
+										className="btn btn-primary btn-sm"
+										onClick={getOkurimonoNavi}
 									>
 										button
 									</button>
