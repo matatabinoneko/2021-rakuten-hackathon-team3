@@ -10,22 +10,14 @@ import VerticalModal from "./VerticalModal";
 
 // function ClickHandler() {
 // }
-function FriendsList() {
-
-    const [friends, setFriends] = useState([])
-
-    useEffect(() => { 
-			  fetch('http://18.176.60.7:8000/api/users/')
-			  .then(res=>res.json())
-			  .then(data=> setFriends(data))
-        },[])
+function FriendsList(props) {
 
     return(
         <div class="friends-container">
             <h3>FriendsList</h3>
             <div class="friends-list">
             <ul class="friends-list-ul">
-            <FriendItems friends={friends}/>
+            <FriendItems friends={props.friends}/>
             </ul>
             </div>
             <VerticalModal />
