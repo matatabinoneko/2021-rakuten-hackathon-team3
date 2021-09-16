@@ -4,7 +4,8 @@
         "pk": 1,
         "fields": {
             "user_id": 1,
-            "name": "Tanaka's fav things"
+            "name": "Tanaka's fav things",
+            "products": [101,102]
         }
     },
 
@@ -13,7 +14,8 @@
         "pk": 2,
         "fields": {
             "user_id": 1,
-            "name": "買いたいけど買えないもの"
+            "name": "買いたいけど買えないもの",
+            "products": [103]
         }
     },
 
@@ -22,7 +24,8 @@
         "pk": 2,
         "fields": {
             "user_id": 2,
-            "name": "Tanaka Jiro's wish list"
+            "name": "Tanaka Jiro's wish list",
+            "products": [104]
         }
     },
 
@@ -32,6 +35,7 @@
         "fields": {
             "user_id": 2,
             "name": "Those things which cannot afford."
+            "products": [114,115]
         }
     },
 
@@ -40,7 +44,8 @@
         "pk": 5,
         "fields": {
             "user_id": 3,
-            "name": "ichiban suki"
+            "name": "ichiban suki",
+            "products": [111,112]
         }
     },
     
@@ -49,7 +54,8 @@
         "pk": 6,
         "fields": {
             "user_id": 3,
-            "name": "It's wishlist"
+            "name": "It's wishlist",
+            "products": [110]
         }
     },
 
@@ -58,7 +64,8 @@
         "pk": 7,
         "fields": {
             "user_id": 4,
-            "name": "Birthday"
+            "name": "Birthday",
+            "products": [107]
         }
     },
 
@@ -67,7 +74,8 @@
         "pk": 8,
         "fields": {
             "user_id": 5,
-            "name": "Yamanaka's fav"
+            "name": "Yamanaka's fav",
+            "products": [108,109]
         }
     },
 
@@ -76,7 +84,8 @@
         "pk": 9,
         "fields": {
             "user_id": 5,
-            "name": "Target"
+            "name": "Target",
+            "products": [106]
         }
     },
 
@@ -85,7 +94,8 @@
         "pk": 10,
         "fields": {
             "user_id": "6",
-            "name": "美桜自分"
+            "name": "美桜自分",
+            "products": [105]
         }
     }
 ]
