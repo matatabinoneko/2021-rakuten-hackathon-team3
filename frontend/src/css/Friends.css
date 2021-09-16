@@ -24,15 +24,17 @@
   }
 .friends-list li {
     width: 234px;
+    background-color: white;
     padding: 10px 10px;
     margin: 10px 0px;
     border: 1px solid;
+    border-color: #eee;
     border-radius: 15px;
     overflow: auto;
   }
    
 .friends-list li:hover {
-    background: #eee;
+    filter:brightness(90%);
     cursor: pointer;
   }
 .friends-list li img {
@@ -64,4 +66,8 @@
 
 .friends-ser-bt {
   margin-top: 10px;
+}
+
+.modal-backgound {
+  background-color: rgb(240, 240, 240);
 }

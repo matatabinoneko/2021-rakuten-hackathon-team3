@@ -17,10 +17,11 @@ function ModalShow(props) {
                   Let's Search your friend!
                 </Modal.Title>
               </Modal.Header>
-
+              <div className="modal-backgound">
               <Modal.Body>
                 <SearchFriend />
               </Modal.Body>
+              </div>
               <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>
               </Modal.Footer>
