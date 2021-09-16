@@ -6,6 +6,7 @@ import AddMyWishItemList from "components/AddMyWishItemList";
 import { useEffect, useState } from "react";
 import { getWishList } from "data/api/mock";
 import { ToastProvider } from "react-toast-notifications";
+// import Auth from "./Auth";
 
 function TopPage() {
 	const [wishItems, setWishItems] = useState([]);
@@ -34,6 +35,7 @@ function TopPage() {
 
 	return (
 		<div>
+			{/* <Auth/> */}
 			<Header setSearch={setSearch} />
 			<ToastProvider>
 				<AddMyWishItemList search={search} />
