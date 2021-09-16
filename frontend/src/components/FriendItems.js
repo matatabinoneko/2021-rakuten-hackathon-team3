@@ -4,7 +4,7 @@ import "css/Friends.css"
 function FriendItems(props) {
 
     const itemClickHandle = (loginid) => {
-        console.log(loginid)
+        props.setFriendUserId(loginid)
     }
 
         const list = props.friends.map((friend,id) => {
@@ -14,9 +14,10 @@ function FriendItems(props) {
             const day = birthday[2].replace(/^0+/,'')
             return(
                 <li onClick={() => itemClickHandle(friend.loginid)}>
+                    
+                    <h6 className="friend-birthday-year">{ Number(year) === 1996 ? ' Best wishes on your 20th birthday!': '' }</h6>
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg"/>
                     <div className="friend-birthday">
-                        <h3 className="friend-birthday-year">{year}</h3>
                     <h2 className="friend-birthday-month-date"> {month}/{day}</h2>
                     </div>
                     <h4 className="friend-name">{friend.username}</h4>

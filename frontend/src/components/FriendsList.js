@@ -6,11 +6,13 @@ import VerticalModal from "./VerticalModal";
 function FriendsList(props) {
 
     return(
-        <div className="friends-container">
-            <h3>FriendsList</h3>
+        <div className="mt-5 friends-container">
+            <h2>FriendsList</h2>
             <div className="friends-list">
             <ul className="friends-list-ul">
-            <FriendItems friends={props.friends}/>
+			<FriendItems friends={props.friends}
+						 setFriendUserId={props.setFriendUserId}
+			/>
             </ul>
             </div>
             <VerticalModal />

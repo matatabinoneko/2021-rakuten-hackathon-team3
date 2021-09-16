@@ -1,10 +1,11 @@
-.friends-container {
-    width: 100%;
-}
 
 .friends-list {
 }
+.friends-container a {
+    text-decoration: none;
+}
 .friends-list-ul {
+ 
   list-style-type: none;
   padding-left: 0px;
   height: 740px;
@@ -29,7 +30,7 @@
     margin: 10px 10px;
     border: 1px solid;
     border-color: #eee;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow: auto;
   }
    
@@ -46,7 +47,6 @@
 
 .friend-name {
     padding-top: 5px;
-    padding-left: 13px;
     font-size: 18px;
 }
 
@@ -71,3 +71,8 @@
 .modal-backgound {
   background-color: rgb(240, 240, 240);
 }
+
+.add-button-container {
+  margin-left: 50px;
+}
+

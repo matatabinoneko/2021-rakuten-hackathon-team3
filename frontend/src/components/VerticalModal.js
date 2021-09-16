@@ -39,9 +39,11 @@ function VerticalModal() {
 
     return (
         <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        <div className="add-button-container">
+        <Button variant="outline-secondary" onClick={() => setModalShow(true)}>
         Add your friend
         </Button>
+        </div>
 
         <ModalShow show={modalShow}
         onHide={() => setModalShow(false)} />
