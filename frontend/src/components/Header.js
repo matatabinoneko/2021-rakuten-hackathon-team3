@@ -1,76 +1,79 @@
 import React from "react";
-import { Nav, Navbar, Form ,FormControl, Button } from 'react-bootstrap'
-import "css/Header.css"
-import logo from '../data/logo/RakutenBirthday.png';
+import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import "css/Header.css";
+import logo from "../data/logo/RakutenBirthday.png";
+import { useHistory, Link } from "react-router-dom";
+import { useState } from "react";
 
+function Header(props) {
+	const [value, setValue] = useState("");
+	const [searchword, setSearchword] = useState("");
+	const history = useHistory();
 
-class Header extends React.Component{
-	constructor(props){
-		super(props)
-		this.state = {
-			value: ''
-		};
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
 
-		this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-	}
-	
-	handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+	const handleSubmit = (event) => {
+		setSearchword(value);
+		props.setSearch(value);
+		event.preventDefault();
+		console.log(value);
+	};
 
-  
-	handleSubmit(event) {
-		this.setState({searchword: this.state.value})
-
-		this.props.setSearch(this.state.value)
-		// alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-		console.log(this.state.value)
-  }
-
-	render(){
-		return(
+	return (
 		<div className="header">
-      <Navbar>
-			{/* <Navbar bg="light" expand="lg"> */}
+			<Navbar>
+				{/* <Navbar bg="light" expand="lg"> */}
 
-        {/* <Navbar.Brand className="navbar-brand mb-0 h1" href="/">RakutenBirthday</Navbar.Brand> */}
-        <Navbar.Brand className="navbar-brand mb-0 h1" href="/top"> 
-        <img className="header__logo" src={logo} alt="logo"/>
-        </Navbar.Brand>
-
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+				{/* <Navbar.Brand className="navbar-brand mb-0 h1" href="/">RakutenBirthday</Navbar.Brand> */}
+				<Link to="/top">
+					<Navbar.Brand className="navbar-brand mb-0 h1">
+						<img className="header__logo" src={logo} alt="logo" />
+					</Navbar.Brand>
+				</Link>
+				<Navbar.Toggle aria-controls="navbarScroll" />
+				<Navbar.Collapse id="navbarScroll">
 					<Nav
-            className="my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="/setting">
-              Setting
-            </Nav.Link>
-            {/* <Nav.Link href="/logout">Logout</Nav.Link> */}
-          </Nav>
-          <Form className="d-flex" onSubmit={this.handleSubmit}>
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="mr-2"
-              aria-label="Search"
-							value={this.state.value} 
-							onChange={this.handleChange}
-							
-            />
-            <Button variant="outline-secondary" type="submit" value="Submit">Search</Button>
-          </Form>
-          
-        </Navbar.Collapse>
-      </Navbar>
-    </div>
-		)
-	}
+						className="my-2 my-lg-0"
+						style={{ maxHeight: "100px" }}
+						navbarScroll
+					>
+						<Nav.Link
+							onClick={() => {
+								const userId = localStorage.getItem("userId");
+								const path = userId
+									? `/user/${userId}`
+									: "/signin";
+								history.push(path);
+							}}
+						>
+							my page
+						</Nav.Link>
+
+						{/* <Nav.Link href="/logout">Logout</Nav.Link> */}
+					</Nav>
+					<Form className="d-flex" onSubmit={handleSubmit}>
+						<FormControl
+							type="search"
+							placeholder="Search"
+							className="mr-2"
+							aria-label="Search"
+							value={value}
+							onChange={handleChange}
+						/>
+						<Button
+							variant="outline-secondary"
+							type="submit"
+							value="Submit"
+						>
+							Search
+						</Button>
+					</Form>
+				</Navbar.Collapse>
+			</Navbar>
+		</div>
+	);
 }
 
-
-export default Header
+export default Header;
