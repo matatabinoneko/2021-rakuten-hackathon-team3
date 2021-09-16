@@ -12,8 +12,7 @@ function WishList(props) {
 		);
 	}
 	return (
-		<div className="mb-3">
-			<h4>WishList</h4>
+		<div>
 			<div className="testimonial-group">
 				<div className="d-flex flex-row">{wishList}</div>
 			</div>
