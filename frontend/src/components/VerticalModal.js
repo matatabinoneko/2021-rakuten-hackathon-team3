@@ -1,46 +1,31 @@
-import React from "react"
+import React,{useState} from "react"
 import SearchFriend from "./SearchFriend"
-import FriendItems from "./FriendItems"
-import Friends from "css/Friends.css"
-import TableShow from "./TableShow"
-import {Modal, Button, Table} from "react-bootstrap"
+import "css/Friends.css"
+import {Modal, Button} from "react-bootstrap"
+import { ToastProvider } from "react-toast-notifications";
 
 function ModalShow(props) {
-
-    const friends = [
-		{id:1,userName: "Smith", birthDay:"9/15", iconImage:"icon"}, 
-		{id:2,userName: "Arnold", birthDay:"9/23", iconImage:"icon"},
-		{id:3,userName: "Ethan", birthDay:"9/30", iconImage:"icon"},
-		{id:4,userName: "Alicia", birthDay:"10/5", iconImage:"icon"},
-		{id:5,userName: "Max", birthDay:"10/24", iconImage:"icon"},
-		{id:5,userName: "Tommy", birthDay:"11/5", iconImage:"icon"},
-		{id:5,userName: "Lee", birthDay:"1/20", iconImage:"icon"},
-		{id:5,userName: "Black", birthDay:"4/5", iconImage:"icon"},
-	]
 
         return (
             <Modal
               {...props}
-              size="lg"
+              size="sm"
               aria-labelledby="contained-modal-title-vcenter"
               centered
             >
               <Modal.Header closeButton>
+                  
                 <Modal.Title id="contained-modal-title-vcenter">
                   Let's Search your friend!
                 </Modal.Title>
               </Modal.Header>
-
+              <div className="modal-backgound">
               <Modal.Body>
-                <SearchFriend/>
-                <div className="friends-grid">
-                <div className="friends-list">
-                    <ul className="friends-list-ul">
-                <TableShow />
-                    </ul>
-                </div>
-                </div>
+              <ToastProvider>
+                <SearchFriend onHide={props.onHide}/>
+              </ToastProvider>
               </Modal.Body>
+              </div>
               <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>
               </Modal.Footer>
@@ -48,7 +33,7 @@ function ModalShow(props) {
           );
 }
 
-function VerticalModal(props) {
+function VerticalModal() {
 
     const [modalShow, setModalShow] = React.useState(false);
 

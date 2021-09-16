@@ -11,21 +11,30 @@
   overflow-x: scroll;
 }
 
+.friends-serach-ul {
+  list-style-type: none;
+  padding-left: 0px;
+  height: auto;
+  overflow-x: scroll;
+}
+
 .friends-list h3 {
     float: right;
     font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
   }
 .friends-list li {
     width: 234px;
+    background-color: white;
     padding: 10px 10px;
-    margin: 10px 0px;
+    margin: 10px 10px;
     border: 1px solid;
+    border-color: #eee;
     border-radius: 15px;
     overflow: auto;
   }
    
 .friends-list li:hover {
-    background: #eee;
+    filter:brightness(90%);
     cursor: pointer;
   }
 .friends-list li img {
@@ -55,8 +64,10 @@
     text-align: right;
 }
 
-.friends-grid {
-  margin-top: 30px;
-  padding-left: 75px;
+.friends-ser-bt {
+  margin-top: 10px;
+}
 
+.modal-backgound {
+  background-color: rgb(240, 240, 240);
 }

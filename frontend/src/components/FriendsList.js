@@ -1,31 +1,16 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import FriendItems from "./FriendItems"
-import axios from "axios"
-import {ListGroup, PlaceholderButton} from "react-bootstrap"
-import styles from "css/Friends.css"
-import AddFriendButton from "./AddFriendButton";
-import Placement from "./Placement"
+import "css/Friends.css"
 import VerticalModal from "./VerticalModal";
 
-
-// function ClickHandler() {
-// }
-function FriendsList() {
-
-    const [friends, setFriends] = useState([])
-
-    useEffect(() => { 
-			  fetch('http://localhost:8000/api/users/')
-			  .then(res=>res.json())
-			  .then(data=> setFriends(data))
-        },[])
+function FriendsList(props) {
 
     return(
-        <div class="friends-container">
+        <div className="friends-container">
             <h3>FriendsList</h3>
-            <div class="friends-list">
-            <ul class="friends-list-ul">
-            <FriendItems friends={friends}/>
+            <div className="friends-list">
+            <ul className="friends-list-ul">
+            <FriendItems friends={props.friends}/>
             </ul>
             </div>
             <VerticalModal />
