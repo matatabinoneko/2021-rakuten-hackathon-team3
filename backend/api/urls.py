@@ -2,7 +2,7 @@ from rest_framework import routers
 from django.urls import path
 from django.conf.urls import include
 
-from .views.user_view import CreateUserView, ListUserView, RetrieveUserView, FriendAPI, TagAPI, WishlistAPI, LoginuserAPI
+from .views.user_view import CreateUserView, ListUserView, RetrieveUserView, FriendAPI, TagAPI, WishlistAPI, LoginuserAPI, LogoutAPi
 from .views.preferencetag_view import PreferenceTagList
 from .views.product_view import CreateProductView, ProductDetails, ProductList
 from .views.wishlist_view import WishlistList, WishlistDetail, CreateWishlist, ProductAPI
@@ -26,5 +26,6 @@ urlpatterns = [
      path('products/<int:pk>/', ProductDetails.as_view(),),
      path('products/create/', CreateProductView.as_view(),),
      path('navi/', NaviAPI.as_view(),),
-     path('loginuser/', LoginuserAPI.as_view(),)
+     path('loginuser/', LoginuserAPI.as_view(),),
+     path('logout/', LogoutAPi.as_view())
 ]
