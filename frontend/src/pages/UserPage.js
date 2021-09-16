@@ -1,4 +1,5 @@
-import "css/UserPage.css";
+//userpage
+
 import { Image, Tabs, Tab } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { getWishList } from "data/api/mock";
@@ -7,14 +8,42 @@ import defaultUserIcon from "assets/person.png";
 import Profile from "components/Profile";
 import UserPageWishList from "components/UserPageWishList";
 import { useHistory } from "react-router-dom";
+import "css/UserPage.css"
+import { useGlobalState } from "App";
+import axios from "axios";
+
 
 const IconImage = true ? defaultUserIcon : "url_link";
 
+
+const initialState = {
+	username: "",
+	loginid: "",
+	password: "",
+	confirmPass: "",
+	firstname: "",
+	lastname: "",
+	zipcode: "",
+	address: "",
+	iconimage: null,
+	is_recommend: false,
+};
+
+
 function UserPage(props) {
-	const [wishItems, setWishItems] = useState([]);
+	const [wishItems, setWishItems] = useState(initialState);
 	const history = useHistory();
+	const [userId, setUserId] = useGlobalState("userId");
+	const [userData, setUserData] = useState([])
+
+	const getUser = () => {
+		axios.get(`/api/users/${userId}`).then((res) => {
+			setUserData(res.data)
+		});
+	};
 
 	useEffect(() => {
+		getUser()
 		getWishList("hoge")
 			.then((res) => {
 				setWishItems(res.data);
@@ -24,19 +53,24 @@ function UserPage(props) {
 			});
 	}, []);
 
+
+
 	const profileData = {
-		firstname: "first hoge",
-		lastname: "last hoge",
-		birthday: "1998-09-21",
-		zipcode: "9812234",
-		address: "ほげ県ふが市ほげほげ町",
+		firstname: userData.firstname,
+		lastname: userData.lastname,
+		birthday: userData.birthday,
+		zipcode: userData.zipcode,
+		address: userData.address,
+		tags: userData.address,
 	};
 
 	return (
+
+		
 		<div className="container">
 			<div className="row justify-content-center mx-1 mt-3">
 				<div className="py-1 col col-md-8">
-					<table class="table table-borderless p-0 m-0">
+					<table className="table-background table table-borderless p-0 m-0">
 						<tbody class="p-0 m-0">
 							<tr class="p-0 m-0">
 								<td class="p-0 m-0">
@@ -48,10 +82,13 @@ function UserPage(props) {
 								</td>
 								<td class="align-middle p-0 m-0 pl-1 pt-1 name-width">
 									<div className="name-width">
+										<div className="name-place">
 										<div className="float-start">
 											<big>user name</big>
 											<p>@user id</p>
 										</div>
+										</div>
+										<div className="style">
 										<button
 											className="btn btn-outline-secondary float-end btn-sm"
 											onClick={() => {
@@ -60,6 +97,7 @@ function UserPage(props) {
 										>
 											modify
 										</button>
+										</div>
 									</div>
 								</td>
 							</tr>
@@ -72,10 +110,10 @@ function UserPage(props) {
 						className="mb-3"
 					>
 						<Tab eventKey="profile" title="Profile">
-							<Profile data={profileData} />
+							<Profile data={profileData}/>
 						</Tab>
 						<Tab eventKey="wishlist" title="Wish List">
-							<UserPageWishList items={wishItems} />
+							{/* <UserPageWishList items={wishItems} /> */}
 						</Tab>
 					</Tabs>
 				</div>

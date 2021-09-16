@@ -14,6 +14,7 @@ import "css/TopPage.css";
 // import Auth from "./Auth";
 
 function TopPage() {
+
 	const [wishItems, setWishItems] = useState([]);
 	const [tagItems, setTagItems] = useState({});
 	const [search, setSearch] = useState("mens");
@@ -36,6 +37,8 @@ function TopPage() {
 	};
 
 	useEffect(() => {
+
+		
 		axios
 			.get(`/api/users/${userId}`)
 			.then((res) => {
@@ -45,6 +48,7 @@ function TopPage() {
 				setMyTags(data["tags"]);
 				getItemsFromTag(data["tags"]);
 				setFriends(data["friends"]);
+				
 			})
 			.catch((e) => {
 				console.error(e);

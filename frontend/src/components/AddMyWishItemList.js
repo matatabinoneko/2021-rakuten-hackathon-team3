@@ -6,14 +6,48 @@ import "css/AddMyWishItemList.css";
 import { IconButton } from "@material-ui/core";
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { useToasts } from 'react-toast-notifications';
+import { useGlobalState } from "App";
+import axios from "axios";
 
+// const initialState = {
+// 	username: "",
+// 	loginid: "",
+// 	password: "",
+// 	confirmPass: "",
+// 	firstname: "",
+// 	lastname: "",
+// 	zipcode: "",
+// 	address: "",
+// 	iconimage: null,
+// 	is_recommend: false,
+// };
 
 
 const AddMyWishItemList = (props) =>{
 	const [items, setItems] = useState([])
 	const { addToast } = useToasts()
+	// const [userData, setUserData] = useState([])
 
-	
+	const [userId, setUserId] = useGlobalState("userId");
+
+	// const getUser = () => {
+	// 	axios.get(`/api/users/${userId}`).then((res) => {
+	// 		setUserData(res.data)
+	// 	});
+	// };
+	const addWishList = () => {
+		const params = { productid: [116] };
+
+		// axios.post("/api/wishlists/<変数になる>/product/", params).then((res) => {
+		axios.post(`/api/wishlists/${userId}/product/`, params).then((res) => {
+			// console.log(userId);
+		});
+	};
+
+	const multifunc=()=>{
+		addWishList()
+		addToast("Added to your wish list!", {appearance: 'success',autoDismiss: true, autoDismissTimeout:3500})
+	}
 
 	useEffect(() => {
 
@@ -77,8 +111,7 @@ const AddMyWishItemList = (props) =>{
 					<a href={item.Item.itemUrl} target="_blank" rel="noopener noreferrer"><img key={id} className="sliderImage" src={item.Item.mediumImageUrls[0].imageUrl} alt="sliderImages"/></a>
           {/* <img className="sliderImage" src={img} alt="sliderImages"/> */}
           <p key={id}>{item.Item.itemName}</p>
-					<IconButton type="button" variant="outlined" color="secondary" onClick={() => addToast("Added to your wish list!", 
-					{appearance: 'success',autoDismiss: true, autoDismissTimeout:3500})}>
+					<IconButton type="button" variant="outlined" color="secondary" onClick={() => multifunc()}>
 						<FavoriteBorderIcon />	
 					</IconButton>
         </div>
