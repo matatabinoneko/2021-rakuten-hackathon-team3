@@ -15,7 +15,7 @@ function FriendItems(props) {
             return(
                 <li onClick={() => itemClickHandle(friend.loginid)}>
                     
-                    <h6 className="friend-birthday-year">{ Number(year) === 1996 ? ' Best wishes on your 20th birthday!': '' }</h6>
+                    <h6 className="friend-birthday-year">{ Number(year) === 2001 ? ' Best wishes on your 20th birthday!': 'HappyBirthday' }</h6>
                     <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.jpg"/>
                     <div className="friend-birthday">
                     <h2 className="friend-birthday-month-date"> {month}/{day}</h2>

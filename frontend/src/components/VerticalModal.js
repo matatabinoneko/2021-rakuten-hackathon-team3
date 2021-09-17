@@ -16,7 +16,7 @@ function ModalShow(props) {
               <Modal.Header closeButton>
                   
                 <Modal.Title id="contained-modal-title-vcenter">
-                  Let's Search your friend!
+                  Search your friend
                 </Modal.Title>
               </Modal.Header>
               <div className="modal-backgound">

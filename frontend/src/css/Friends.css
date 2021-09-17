@@ -8,7 +8,7 @@
  
   list-style-type: none;
   padding-left: 0px;
-  height: 740px;
+  height: 700px;
   overflow-x: scroll;
 }
 
@@ -54,6 +54,10 @@
     margin-left: 20px;
     margin-top: 30px;
     float: right;
+}
+.friend-birthday-year {
+  font-family: cursive;
+  font-size: large;
 }
 
 .scroll::-webkit-scrollbar {  /* Chrome, Safari 対応 */
