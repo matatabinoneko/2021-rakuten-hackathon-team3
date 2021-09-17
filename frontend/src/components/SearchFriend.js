@@ -84,7 +84,7 @@ function SearchFriend(props)  {
             value={value}
             onChange={handleChange}/>
             <div className="friends-ser-bt">
-            <Button variant="outline-primary" type="submit">
+            <Button variant="outline-secondary" type="submit">
                 Search
             </Button>
             </div>
