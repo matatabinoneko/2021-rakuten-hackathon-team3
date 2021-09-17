@@ -62,6 +62,7 @@ const Registration = () => {
 	const [input_birthday, setBirthday] = useState([]);
 	const [offergift, setOffergift] = useState("");
 	const [taglist, setTaglist] = useState([]);
+	const history = useHistory();
 
 	const history = useHistory();
 
