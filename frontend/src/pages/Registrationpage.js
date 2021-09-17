@@ -64,8 +64,6 @@ const Registration = () => {
 	const [taglist, setTaglist] = useState([]);
 	const history = useHistory();
 
-	const history = useHistory();
-
 	// const { isLoading, status, message } = useSelector(
 	//   (state) => state.registration
 	// );
