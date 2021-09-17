@@ -51,20 +51,43 @@ function TopPage() {
 		setTagItems(items);
 	};
 
-	const refreshFriendInfo = () => {
-		axios
-			.get(`/api/users/${friendUserId}`)
-			.then((res) => {
-				const data = res.data;
+	// const getItemsFromTag = async (tag) => {
+	// 	const params = { tag: tag["id"] };
+	// 	try {
+	// 		const res = await axios.get("/api/products/", { params });
+	// 		return res.data;
+	// 	} catch (e) {
+	// 		console.error(e);
+	// 	}
+	// };
+
+	const refreshFriendInfo = async () => {
+		if (friendUserId) {
+			const friendRes = await axios.get(`/api/users/${friendUserId}`);
+
+			const data = friendRes.data;
+
+			if (data["wishlists"].length !== 0) {
 				const wi = data["wishlists"].map((x) => x["products"]).flat();
 				setWishItems(wi);
-				setFriendData(data);
-				setFriendTags(data["tags"]);
-				getItemsFromTag(data["tags"]);
-			})
-			.catch((e) => {
-				console.error(e);
-			});
+			}
+			setFriendData(data);
+			setFriendTags(data["tags"]);
+			getItemsFromTag(data["tags"]);
+			// Tags = [];
+			// for (let tag of data["tags"]) {
+			// 	const _tagItems = await getItemsFromTag(tag);
+			// 	console.log(tag);
+
+			// 	if (_tagItems.length !== 0) {
+			// 		Tags.push(
+			// 			<div className="mt-2">
+			// 				<TagsList items={_tagItems} tagName={tag["name"]} />
+			// 			</div>
+			// 		);
+			// 	}
+			// }
+		}
 	};
 
 	const refreshFriendsList = () => {
@@ -87,24 +110,50 @@ function TopPage() {
 		refreshFriendInfo();
 	}, [friendUserId]);
 
-	useEffect(() => {
-		Tags = [];
-		for (const tag of friendTags) {
-			if (
-				tagItems.hasOwnProperty(tag["id"]) &&
-				tagItems[tag["id"]].length !== 0
-			) {
-				Tags.push(
-					<div className="mt-2">
-						<TagsList
-							items={tagItems[tag["id"]]}
-							tagName={tag["name"]}
-						/>
-					</div>
-				);
-			}
-		}
-	}, [tagItems]);
+	// useEffect(() => {
+	// 	Tags = [];
+	// 	console.log(tagItems);
+	// 	for (const tag of friendTags) {
+	// 		console.log(tag);
+	// 		console.log(
+	// 			tagItems.hasOwnProperty(tag["id"]),
+	// 			tagItems[tag["id"]].length !== 0
+	// 		);
+	// 		if (
+	// 			tagItems.hasOwnProperty(tag["id"]) &&
+	// 			tagItems[tag["id"]].length !== 0
+	// 		) {
+	// 			Tags.push(
+	// 				<div className="mt-2">
+	// 					<TagsList
+	// 						items={tagItems[tag["id"]]}
+	// 						tagName={tag["name"]}
+	// 					/>
+	// 				</div>
+	// 			);
+	// 		}
+	// 		console.log(Tags);
+	// 	}
+	// }, [tagItems]);
+
+	// useEffect(() => {
+	// 	const f = async () => {
+	// 		Tags = [];
+	// 		for (let tag of friendTags) {
+	// 			const _tagItems = await getItemsFromTag(tag);
+	// 			console.log(tag);
+
+	// 			if (_tagItems.length !== 0) {
+	// 				Tags.push(
+	// 					<div className="mt-2">
+	// 						<TagsList items={_tagItems} tagName={tag["name"]} />
+	// 					</div>
+	// 				);
+	// 			}
+	// 		}
+	// 	};
+	// 	f();
+	// }, [friendTags]);
 
 	useEffect(() => {
 		refreshFriendsList();
@@ -112,6 +161,25 @@ function TopPage() {
 	}, []);
 
 	let Tags = [];
+
+	for (let tag of friendTags) {
+		// const _tagItems = await getItemsFromTag(tag);
+		console.log(tag);
+
+		if (
+			tagItems.hasOwnProperty(tag["id"]) &&
+			tagItems[tag["id"]].length !== 0
+		) {
+			Tags.push(
+				<div className="mt-2">
+					<TagsList
+						items={tagItems[tag["id"]]}
+						tagName={tag["name"]}
+					/>
+				</div>
+			);
+		}
+	}
 
 	return (
 		<div>
