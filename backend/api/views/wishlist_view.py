@@ -41,12 +41,13 @@ class CreateWishlist(generics.CreateAPIView):
     model = Wishlist
     serializer_class = WishlistSerializer
 
-    def create(self, request, *args, **kwargs):
+    def create(self, request, loginid, *args, **kwargs):
         data = request.data
         user = self.request.user
+        alluser = User.objects.all()
         wishlist = Wishlist.objects.create(
             name=data['name'],
-            user=user
+            user=alluser.filter(loginid=loginid)[0]
         )
         serializer = WishlistSerializer(wishlist)
         headers = self.get_success_headers(serializer.data)
