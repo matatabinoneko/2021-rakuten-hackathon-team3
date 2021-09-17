@@ -29,7 +29,8 @@ const AddMyWishItemList = (props) =>{
 	// const [userData, setUserData] = useState([])
 
 	const [userId, setUserId] = useGlobalState("userId");
-	const [wishlistId, setWishlistId] = useState("")
+	const [wishlistId, setWishlistId] = useState(0)
+	
 
 	const createNewWishList = async() => {
 		const params = { name: "コーヒーの日に", products: [] };
@@ -37,22 +38,55 @@ const AddMyWishItemList = (props) =>{
 		return res
 	};
 
-	const addWishList = async() => {
+
+
+	const getUser = async() => {
 		const params = { productid: [116] };
-		const res = await axios.get(`/api/users/${userId}`)
-			if (res.data.wishlists = []){
+		const res = await axios.get(`/api/users/${userId}/`)
+		console.log("length")
+		console.log(res.data.wishlists.length)
+			if (res.data.wishlists.length === 0){
 				console.log("no wishlist")
-				var newwishlist = await createNewWishList()
+				let newwishlist = await createNewWishList()
+				console.log("id")
 				console.log(newwishlist.data.id)
 				setWishlistId(newwishlist.data.id)
+				console.log("wishlistid")
+				console.log(wishlistId)
+				const res1 = await axios.post(`/api/wishlists/${newwishlist.data.id}/product/`, params)
 			}else{
+				console.log("wish")
+				console.log(res.data.wishlists)
 				setWishlistId(res.data.wishlists[0].id)
+				console.log(wishlistId)
+				const res2 = await axios.post(`/api/wishlists/${res.data.wishlists[0].id}/product/`, params)
+			}
+			
+	}
 
-		};
 
-		// axios.post("/api/wishlists/<変数になる>/product/", params).then((res) => {
-		const res1 = await axios.post(`/api/wishlists/${wishlistId}/product/`, params)
-	};
+	const addWishList = async() =>{
+		
+		const res = await getUser()
+	}
+
+	// const addWishList = async() => {
+	// 	const params = { productid: [116] };
+	// 	const res = await axios.get(`/api/users/${userId}`)
+	// 		if (res.data.wishlists === []){
+	// 			console.log("no wishlist")
+	// 			var newwishlist = await createNewWishList()
+
+	// 			console.log(newwishlist.data.id)
+	// 			setWishlistId(newwishlist.data.id)
+	// 		}else{
+	// 			setWishlistId(res.data.wishlists[0].id)
+
+	// 	};
+
+	// 	// axios.post("/api/wishlists/<変数になる>/product/", params).then((res) => {
+	// 	const res1 = await axios.post(`/api/wishlists/${wishlistId}/product/`, params)
+	// };
 
 	const multifunc=()=>{
 		addWishList()
