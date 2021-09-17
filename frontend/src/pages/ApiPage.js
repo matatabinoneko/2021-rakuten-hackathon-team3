@@ -1,6 +1,11 @@
 import axios from "axios";
+import { useGlobalState } from "App";
+import React, { useState, useEffect } from 'react'
 
 function ApiPage() {
+	const [userId, setUserId] = useGlobalState("userId");
+	const [wishlistId, setWishlistId] = useState("")
+
 	const getUsersList = () => {
 		axios.get("/api/users/").then((res) => {
 			const data = res.data;
@@ -8,9 +13,31 @@ function ApiPage() {
 		});
 	};
 
+	
+
+	// const getUser = () => {
+	// 	axios.get("/api/users/tanaka1").then((res) => {
+	// 		console.log(res.data);
+	// 	});
+	// };
+	
+
+	// const getUser = () => {
+	// 	axios.get(`/api/users/${userId}`).then((res) => {
+	// 		console.log(res.data.wishlists[0].id);
+	// 		// setWishlistId(res.data.wishlists[0].id)
+	// 	});
+	// };
+
 	const getUser = () => {
-		axios.get("/api/users/tanaka1").then((res) => {
+		axios.get(`/api/users/${userId}`).then((res) => {
 			console.log(res.data);
+			if (res.data.wishlists = []){
+				console.log("none")
+			}else{
+				console.log("yes")
+			}
+			// setWishlistId(res.data.wishlists[0].id)
 		});
 	};
 
@@ -68,30 +95,66 @@ function ApiPage() {
 	};
 
 	const getWishList = () => {
-		axios.get("/api/wishlists/").then((res) => {
+		axios.get(`/api/wishlists/`).then((res) => {
 			console.log(res);
 		});
 	};
 
+	// const getWishList = () => {
+	// 	axios.get("/api/wishlists/30").then((res) => {
+	// 		console.log(res);
+	// 	});
+	// };
+
+	// const getSelectedWishList = () => {
+	// 	axios.delete("/api/wishlists/1").then((res) => {
+	// 		console.log(res);
+	// 	});
+	// };
+
 	const getSelectedWishList = () => {
-		axios.delete("/api/wishlists/1").then((res) => {
+		// axios.get(`/api/wishlists/${wishlistId}/`).then((res) => {
+		axios.get("/api/wishlists/28/").then((res) => {
 			console.log(res);
 		});
 	};
+
+	// const createNewWishList = () => {
+	// 	const params = { name: "コーヒーの日に", products: [] };
+	// 	axios.post("/api/wishlists/create/", params).then((res) => {
+	// 		console.log(res);
+	// 	});
+	// };
 
 	const createNewWishList = () => {
 		const params = { name: "コーヒーの日に", products: [] };
-		axios.post("/api/wishlists/create/", params).then((res) => {
+		axios.post(`/api/wishlists/create/`, params).then((res) => {
+			console.log(userId);
 			console.log(res);
 		});
 	};
 
+
+
+	
+
 	const addWishList = () => {
-		const params = { productid: [1, 2] };
-		axios.post("/api/wishlists/2/product/", params).then((res) => {
+		console.log(userId);
+		const params = { productid: [116] };
+		axios.post(`/api/wishlists/${wishlistId}/product/`, params).then((res) => {
 			console.log(res);
+			
 		});
 	};
+
+
+	// const addWishList = () => {
+	// 	const params = { productid: [116] };
+	// 	console.log(userId);
+	// 	axios.post("/api/wishlists/30/product/", params).then((res) => {
+	// 		console.log(res);
+	// 	});
+	// };
 
 	const deleteWishList = () => {
 		const data = { wishlistid: [1] };
