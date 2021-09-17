@@ -1,6 +1,9 @@
 
 .friends-list {
 }
+.friends-list h6{
+  float: right;
+}
 .friends-container a {
     text-decoration: none;
 }
