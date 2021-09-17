@@ -40,6 +40,7 @@ function FriendItems(props) {
                     <h6 className="friend-birthday-year">{ Number(year) === 2001 ? ' Best wishes on your 20th birthday': 'HappyBirthday' }</h6>
                     <img src={imageList[Math.floor(Math.random() * imageList.length)]}/>
                     <div className="friend-birthday">
+                    <h6>2021</h6>
                     <h2 className="friend-birthday-month-date"> {month}/{day}</h2>
                     </div>
                     <h4 className="friend-name">{friend.username}</h4>
