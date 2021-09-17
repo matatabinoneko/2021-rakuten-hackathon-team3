@@ -39,6 +39,7 @@ function Header(props) {
 			.then((res) => {})
 			.catch((e) => {
 				localStorage.clear();
+				history.replace("/top");
 				window.location.reload();
 			});
 	};

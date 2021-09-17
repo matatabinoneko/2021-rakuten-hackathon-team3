@@ -14,9 +14,10 @@ import {
 import Registration_birthday from "pages/Registration_birthday";
 import Registration_tags from "pages/Registration_tags";
 import { Link, useHistory } from "react-router-dom";
+import { useGlobalState } from "App";
+
 import "css/Login.css";
 import axios from "axios";
-
 
 const initialState = {
 	username: "",
@@ -44,7 +45,6 @@ const passVerificationError = {
 	confirmPass: false,
 };
 
-
 // const zipcodeVerificationError = {
 //   hashyphen: false,
 // };
@@ -56,12 +56,14 @@ const Registration = () => {
 	const [usernameError, setUsernameError] = useState(
 		usernameVerificationError
 	);
+	const [globalUserId, setGlobalUserId] = useGlobalState("userId");
 
-	
 	// const [zipcodeError, setZipcodeError] = useState(zipcodeVerificationError);
 	const [input_birthday, setBirthday] = useState([]);
 	const [offergift, setOffergift] = useState("");
 	const [taglist, setTaglist] = useState([]);
+
+	const history = useHistory();
 
 	// const { isLoading, status, message } = useSelector(
 	//   (state) => state.registration
@@ -123,7 +125,23 @@ const Registration = () => {
 		setOffergift(e.target.value);
 	};
 
-
+	const login = () => {
+		const authorizationBasic = window.btoa(
+			newUser.loginid + ":" + newUser.password
+		);
+		const headers = { Authorization: "Basic " + authorizationBasic };
+		const data = {};
+		axios
+			.get(`/api/users/${newUser.loginid}`, { headers }, { data })
+			.then((res) => {
+				setGlobalUserId(newUser.loginid);
+				localStorage.setItem("userId", newUser.loginid);
+				history.replace("/top");
+			})
+			.catch(() => {
+				console.error("login failed");
+			});
+	};
 
 	const handleOnSubmit = (e) => {
 		e.preventDefault();
@@ -142,7 +160,6 @@ const Registration = () => {
 
 		let tagIds = taglist.map((str) => parseInt(str, 10));
 
-
 		const params = {
 			loginid: loginid,
 			password: password,
@@ -155,12 +172,11 @@ const Registration = () => {
 			address: address,
 			is_recommend: input_is_recommend.checked,
 			tag_id: tagIds,
+		};
 
-			};
-
-		axios.post("/api/users/create/", params).then((res) => {console.log(res);});
-		
-		
+		axios.post("/api/users/create/", params).then(() => {
+			login();
+		});
 	};
 
 	return (
@@ -440,7 +456,6 @@ const Registration = () => {
 										)
 										// <Check />
 									}
-
 
 									<Button
 										variant="primary"
